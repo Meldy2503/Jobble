@@ -25,27 +25,31 @@ const Modal = ({
       open={open}
       onOpenChange={onOpenChange}
       placement={"center"}
-      size={size}
+      size={size ?? "lg"}
     >
       <Portal>
         <Dialog.Backdrop />
         <Dialog.Positioner>
-          <Dialog.Content rounded={"2rem"}>
+          <Dialog.Content rounded={".5rem"} py="2rem" px="1.5rem" m=".2rem">
             <Dialog.Header>
-              <Dialog.Title>{title}</Dialog.Title>
+              <Dialog.Title mb="1.5rem">{title}</Dialog.Title>
             </Dialog.Header>
             <Dialog.Body>{children}</Dialog.Body>
             {cta && (
-              <Dialog.Footer>
+              <Dialog.Footer mt="2rem">
                 <Button
                   variant={"outline"}
                   border={"1px solid #007AFF"}
+                  color="#007AFF"
                   bg="white"
                   onClick={onOpenChange}
+                  fontSize={".9rem"}
                 >
                   Cancel
                 </Button>
-                <Button onClick={onOpenChange}>Save</Button>
+                <Button onClick={onOpenChange} fontSize={".9rem"}>
+                  Save
+                </Button>
               </Dialog.Footer>
             )}
             <Dialog.CloseTrigger asChild>

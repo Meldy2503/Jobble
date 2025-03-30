@@ -4,7 +4,7 @@ import { InputElement } from "../ui/input-element";
 
 const EducationForm = () => {
   return (
-    <Box spaceY={"1rem"} as={"form"}>
+    <Box spaceY={"1.5rem"} as={"form"}>
       <InputElement label="Name of Institution" />
       <InputElement label="Field of study" />
       <InputElement label="Degree" />

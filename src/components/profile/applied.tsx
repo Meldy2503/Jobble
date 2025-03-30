@@ -4,9 +4,9 @@ import Button from "../button";
 
 const AppliedJobs = () => {
   return (
-    <VStack bg="#F8FCFF" py="4rem" mt="2rem">
-      <Heading>You havent applied to any jobs!</Heading>
-      <Text my='1rem'>
+    <VStack bg="#F8FCFF" py="4rem" mt="2rem" px="1rem">
+      <Heading textAlign={'center'}>You havent applied to any jobs!</Heading>
+      <Text my="1rem" textAlign={'center'}>
         Find new opportunities and manage your job search progress here.
       </Text>
       <Button href="/jobs">Browse Jobs</Button>

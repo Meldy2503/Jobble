@@ -8,12 +8,17 @@ const Profile = () => {
   return (
     <>
       <Navbar />
-      <Grid placeItems={"center"} bg={"#f9f9f9"} py='7rem'>
+      <Grid
+        placeItems={"center"}
+        bg={"#f9f9f9"}
+        pt={{ base: "5rem", md: "7rem" }}
+        pb="10rem"
+      >
         <Box
           mt={10}
-          w={{ base: "100%", md: "80%", lg: "60%" }}
+          w={{ base: "90%", md: "80%", lg: "60%" }}
           mx={"auto"}
-          p={"2rem"}
+          p={{ base: "1rem", sm: "2rem" }}
           border={"1px solid #CFD4D1"}
           rounded={"md"}
         >
@@ -73,7 +78,7 @@ const Profile = () => {
                   </Link>
                 </Tabs.Trigger>
               </Tabs.List>
-              <Tabs.Content value="about" >
+              <Tabs.Content value="about">
                 <About />
               </Tabs.Content>
               <Tabs.Content value="resume">

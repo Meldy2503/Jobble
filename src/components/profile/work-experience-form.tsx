@@ -4,7 +4,7 @@ import { InputElement } from "../ui/input-element";
 
 const WorkExperienceForm = () => {
   return (
-    <Box spaceY={"1rem"} as={"form"}>
+    <Box spaceY={"1.5rem"} as={"form"}>
       <InputElement label="Job title" />
       <InputElement label="Company name" />
       <Checkbox.Root size={"lg"} variant={"outline"} my="4px">

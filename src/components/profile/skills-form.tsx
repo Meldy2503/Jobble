@@ -4,7 +4,7 @@ import { InputElement } from "../ui/input-element";
 
 const SkillsForm = () => {
   return (
-    <Box spaceY={"1rem"} as={"form"}>
+    <Box spaceY={"2rem"} as={"form"} >
       <InputElement label="Skill" required />
       <InputElement label="Years of Experience" placeholder="select" />
     </Box>

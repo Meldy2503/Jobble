@@ -13,6 +13,7 @@ import {
   defineStyle,
 } from "@chakra-ui/react";
 import { AiOutlineFileText, AiOutlinePlus } from "react-icons/ai";
+import { BiPlus } from "react-icons/bi";
 
 interface InputElementProps {
   inputStyle?: "floating" | "filled";
@@ -61,7 +62,9 @@ export const InputElement = ({
       <Field.Root required={required} w="full">
         {label && (
           <Flex mb="1">
-            <Field.Label fontWeight="semibold">{label}</Field.Label>
+            <Field.Label fontWeight="semibold" fontSize={"1rem"}>
+              {label}
+            </Field.Label>
             {required && <Field.RequiredIndicator color="red.500" ml="1" />}
           </Flex>
         )}
@@ -74,18 +77,28 @@ export const InputElement = ({
           p="2"
           display="flex"
           alignItems="center"
+          justifyContent="space-between"
           _hover={{ bg: "gray.50" }}
           cursor="pointer"
           width="full"
         >
-          {/* Show a + icon if no file is selected, otherwise show a file icon */}
-          <Icon boxSize={5} mr={2} color="gray.600">
-            {selectedFile ? <AiOutlineFileText /> : <AiOutlinePlus />}
-          </Icon>
-          {/* If `selectedFile` exists, show its name; otherwise fallback to `value` prop or “No file selected” */}
-          <Text color="gray.700">
-            {selectedFile || value || "No file selected"}
-          </Text>
+          <Flex alignItems="center">
+            {/* Show a + icon if no file is selected, otherwise show a file icon */}
+            <Icon boxSize={5} mr={2} color="gray.600">
+              {selectedFile ? <AiOutlineFileText /> : <AiOutlinePlus />}
+            </Icon>
+            {/* If `selectedFile` exists, show its name; otherwise fallback to `value` prop or “No file selected” */}
+            <Text color="gray.700">
+              {selectedFile || value || "No file selected"}
+            </Text>
+          </Flex>
+          {/* Show "Change File" text if a file is selected */}
+          {selectedFile && (
+            <Flex gap="5px" alignItems={"center"} color="blue.500">
+              <BiPlus />
+              <Text fontSize="sm">Change File</Text>
+            </Flex>
+          )}
           {/* Hidden native input that opens the file picker */}
           <Input
             type="file"
@@ -103,7 +116,7 @@ export const InputElement = ({
         <Box pos="relative" w="full">
           <Input
             className="peer"
-            fontSize={"1.05rem"}
+            fontSize={"1rem"}
             py="1.5rem"
             px="1rem"
             type={type}
@@ -122,11 +135,11 @@ export const InputElement = ({
   if (type === "textarea") {
     return (
       <Field.Root required={required}>
-        {label && <Field.Label>{label}</Field.Label>}
+        {label && <Field.Label fontSize={"1rem"}>{label}</Field.Label>}
         <Textarea
           py="1.5rem"
           px="1rem"
-          fontSize={"1.05rem"}
+          fontSize={"1rem"}
           autoresize
           size={"xl"}
           placeholder={placeholder || label}
@@ -143,14 +156,14 @@ export const InputElement = ({
   return (
     <Field.Root required={required}>
       <Flex>
-        {label && <Field.Label>{label}</Field.Label>}
+        {label && <Field.Label fontSize={"1rem"}>{label}</Field.Label>}
         {required && <Field.RequiredIndicator color={"black"} />}
       </Flex>
       <Input
         className="peer"
         py="1.5rem"
         px="1rem"
-        fontSize={"1.05rem"}
+        fontSize={"1rem"}
         placeholder={placeholder || label}
         type={type}
         {...props}
@@ -169,6 +182,7 @@ const floatingStyles = defineStyle({
   top: "-3",
   insetStart: "2",
   fontWeight: "normal",
+  fontSize: "1rem",
   pointerEvents: "none",
   transition: "position",
   _peerPlaceholderShown: {
