@@ -26,7 +26,13 @@ const Login = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      <Button onSubmit={handleLogin} w={"full"} py='1.3rem' mt='1.5rem'>
+      <Button
+        onSubmit={handleLogin}
+        href={"/profile"}
+        w={"full"}
+        py="1.3rem"
+        mt="1.5rem"
+      >
         Login
       </Button>
     </AuthWrapper>

@@ -35,7 +35,7 @@ function JobSearch() {
           rounded={"full"}
           bg={"#fff"}
           w={"800px"}
-          h={"3.8rem"}
+          h={"3.7rem"}
         >
           <Field.Root>
             <Input
@@ -56,7 +56,7 @@ function JobSearch() {
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               outline={"none"}
-              fontSize={"1.1rem"}
+              fontSize={"1rem"}
             />
           </Field.Root>
           <IconButton

@@ -33,7 +33,7 @@ const Button = ({ children, href, bg, px, ...props }: ButtonProps) => {
   return (
     <ChakraButton
       borderRadius={"3rem"}
-      fontSize={"1.2rem"}
+      fontSize={"1rem"}
       fontWeight={"semibold"}
       px={px ?? "1.5rem"}
       bg={bg ?? "#007AFF"}

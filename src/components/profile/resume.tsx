@@ -5,7 +5,7 @@ import { BiPlus } from "react-icons/bi";
 
 const Resume = () => {
   return (
-    <Box>
+    <Box mt='2rem'>
       <Heading as="h2" fontWeight={"bold"}>
         Resume
       </Heading>

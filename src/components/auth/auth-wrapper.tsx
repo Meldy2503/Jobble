@@ -71,7 +71,7 @@ function AuthWrapper({ children, authType }: AuthWrapperProps) {
             {children}
           </Stack>
           {authType === "signup" ? (
-            <Text textAlign="center" mt={4} fontSize={"1.1rem"}>
+            <Text textAlign="center" mt={4} fontSize={"1rem"}>
               Already have an account?{" "}
               <Link
                 as={NextLink}
@@ -83,7 +83,7 @@ function AuthWrapper({ children, authType }: AuthWrapperProps) {
               </Link>
             </Text>
           ) : (
-            <Text textAlign="center" mt={4} fontSize={"1.1rem"}>
+            <Text textAlign="center" mt={4} fontSize={"1rem"}>
               Don’t have an account? {""}
               <Link
                 as={NextLink}

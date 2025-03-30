@@ -16,7 +16,7 @@ const About = () => {
   const { open: openEducation, toggleModal: toggleEducation } =
     useToggleModal();
   return (
-    <Box>
+    <Box mt="2rem">
       <Heading as="h2" fontWeight={"bold"}>
         About
       </Heading>
@@ -25,29 +25,47 @@ const About = () => {
       </Text>
       <Separator />
       <Box py="1rem">
-        <Flex mb="1rem" alignItems={"center"} justify={"space-between"}>
-          <Heading color={"#8C8F8E"}>Skills</Heading>
-          <Box cursor={"pointer"} onClick={toggleSkills}>
-            <BiPlus />
-          </Box>
+        <Flex
+          mb="1rem"
+          alignItems={"center"}
+          justify={"space-between"}
+          onClick={toggleSkills}
+          cursor={"pointer"}
+        >
+          <Heading color={"#8C8F8E"} fontSize={"1.1rem"}>
+            Skills
+          </Heading>
+          <BiPlus />
         </Flex>
         <Separator />
       </Box>
       <Box py="1rem">
-        <Flex mb="1rem" alignItems={"center"} justify={"space-between"}>
-          <Heading color={"#8C8F8E"}>Add work experience</Heading>
-          <Box cursor={"pointer"} onClick={toggleExperience}>
-            <BiPlus />
-          </Box>
+        <Flex
+          mb="1rem"
+          alignItems={"center"}
+          justify={"space-between"}
+          onClick={toggleExperience}
+          cursor={"pointer"}
+        >
+          <Heading color={"#8C8F8E"} fontSize={"1.1rem"}>
+            Add work experience
+          </Heading>
+          <BiPlus />
         </Flex>
         <Separator />
       </Box>
       <Box py="1rem">
-        <Flex mb="1rem" alignItems={"center"} justify={"space-between"}>
-          <Heading color={"#8C8F8E"}>Add education</Heading>
-          <Box cursor={"pointer"} onClick={toggleEducation}>
-            <BiPlus />
-          </Box>
+        <Flex
+          mb="1rem"
+          alignItems={"center"}
+          justify={"space-between"}
+          onClick={toggleEducation}
+          cursor={"pointer"}
+        >
+          <Heading color={"#8C8F8E"} fontSize={"1.1rem"}>
+            Add education
+          </Heading>
+          <BiPlus />
         </Flex>
         <Separator />
       </Box>

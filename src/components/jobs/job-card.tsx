@@ -22,7 +22,16 @@ const JobCard: React.FC<JobCardProps> = ({
   onClick,
 }) => {
   return (
-    <Box borderWidth="1px" borderRadius="15px" p={4} shadow="md" bg="#fff">
+    <Box
+      borderWidth="1px"
+      borderRadius="15px"
+      p={4}
+      shadow="md"
+      bg="#fff"
+      _hover={{ bg: "#F8FCFF" }}
+      onClick={onClick}
+      cursor={'pointer'}
+    >
       <VStack justify="space-between" align="start">
         <HStack justify={"space-between"} w="100%">
           <HStack gap={3} alignItems={"center"} justify={"center"}>
@@ -50,7 +59,7 @@ const JobCard: React.FC<JobCardProps> = ({
           py="0.8rem"
           color={"#007AFF"}
           fontSize={"0.8rem"}
-          fontWeight={"bold"}
+          fontWeight={"semibold"}
           onClick={onClick}
         >
           View Details
