@@ -1,0 +1,184 @@
+"use client";
+
+import React, { useState } from "react";
+
+import {
+  Box,
+  Field,
+  Flex,
+  Icon,
+  Input,
+  Text,
+  Textarea,
+  defineStyle,
+} from "@chakra-ui/react";
+import { AiOutlineFileText, AiOutlinePlus } from "react-icons/ai";
+
+interface InputElementProps {
+  inputStyle?: "floating" | "filled";
+  label?: string;
+  placeholder?: string;
+  type?: string;
+  value?: string;
+  onChange?: (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => void;
+  required?: boolean;
+  rounded?: string;
+}
+
+export const InputElement = ({
+  inputStyle,
+  label,
+  placeholder,
+  type = "text",
+  value,
+  onChange,
+  required = false,
+  rounded,
+  ...props
+}: InputElementProps) => {
+  // Track the uploaded filename to switch icons and show the name
+  const [selectedFile, setSelectedFile] = useState<string | null>(null);
+
+  // If this is a file input, style it to show an icon and label, matching the screenshot
+  if (type === "file") {
+    // Wrap `onChange` so we can capture the file name too
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (onChange) {
+        onChange(e);
+      }
+      if (e.target.files && e.target.files.length > 0) {
+        setSelectedFile(e.target.files[0].name);
+      } else {
+        setSelectedFile(null);
+      }
+    };
+
+    return (
+      <Field.Root required={required} w="full">
+        {label && (
+          <Flex mb="1">
+            <Field.Label fontWeight="semibold">{label}</Field.Label>
+            {required && <Field.RequiredIndicator color="red.500" ml="1" />}
+          </Flex>
+        )}
+
+        <Box
+          as="label"
+          border="1px solid"
+          borderColor="gray.200"
+          rounded="md"
+          p="2"
+          display="flex"
+          alignItems="center"
+          _hover={{ bg: "gray.50" }}
+          cursor="pointer"
+          width="full"
+        >
+          {/* Show a + icon if no file is selected, otherwise show a file icon */}
+          <Icon boxSize={5} mr={2} color="gray.600">
+            {selectedFile ? <AiOutlineFileText /> : <AiOutlinePlus />}
+          </Icon>
+          {/* If `selectedFile` exists, show its name; otherwise fallback to `value` prop or “No file selected” */}
+          <Text color="gray.700">
+            {selectedFile || value || "No file selected"}
+          </Text>
+          {/* Hidden native input that opens the file picker */}
+          <Input
+            type="file"
+            display="none"
+            onChange={handleFileChange}
+            {...props}
+          />
+        </Box>
+      </Field.Root>
+    );
+  }
+  if (inputStyle == "floating") {
+    return (
+      <Field.Root required={required}>
+        <Box pos="relative" w="full">
+          <Input
+            className="peer"
+            fontSize={"1.05rem"}
+            py="1.5rem"
+            px="1rem"
+            type={type}
+            {...props}
+            value={value}
+            onChange={(e) =>
+              onChange?.(e as React.ChangeEvent<HTMLInputElement>)
+            }
+            rounded={"8px"}
+          />
+          <Field.Label css={floatingStyles}>{label}</Field.Label>
+        </Box>
+      </Field.Root>
+    );
+  }
+  if (type === "textarea") {
+    return (
+      <Field.Root required={required}>
+        {label && <Field.Label>{label}</Field.Label>}
+        <Textarea
+          py="1.5rem"
+          px="1rem"
+          fontSize={"1.05rem"}
+          autoresize
+          size={"xl"}
+          placeholder={placeholder || label}
+          {...props}
+          value={value}
+          onChange={(e) =>
+            onChange?.(e as React.ChangeEvent<HTMLTextAreaElement>)
+          }
+          rounded={rounded || "8px"}
+        />
+      </Field.Root>
+    );
+  }
+  return (
+    <Field.Root required={required}>
+      <Flex>
+        {label && <Field.Label>{label}</Field.Label>}
+        {required && <Field.RequiredIndicator color={"black"} />}
+      </Flex>
+      <Input
+        className="peer"
+        py="1.5rem"
+        px="1rem"
+        fontSize={"1.05rem"}
+        placeholder={placeholder || label}
+        type={type}
+        {...props}
+        value={value}
+        onChange={onChange}
+        rounded={rounded || "8px"}
+      />
+    </Field.Root>
+  );
+};
+
+const floatingStyles = defineStyle({
+  pos: "absolute",
+  bg: "bg",
+  px: "0.5",
+  top: "-3",
+  insetStart: "2",
+  fontWeight: "normal",
+  pointerEvents: "none",
+  transition: "position",
+  _peerPlaceholderShown: {
+    color: "fg.muted",
+    top: "2.5",
+    insetStart: "3",
+  },
+  _peerFocusVisible: {
+    color: "fg",
+    top: "-3",
+    insetStart: "2",
+  },
+});

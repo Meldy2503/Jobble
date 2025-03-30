@@ -1,0 +1,159 @@
+"use client";
+
+import {
+  Box,
+  Flex,
+  Icon,
+  Drawer,
+  Portal,
+  CloseButton,
+  Menu,
+  HStack,
+} from "@chakra-ui/react";
+import Link from "next/link";
+import { AiOutlineClose } from "react-icons/ai";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { useState } from "react";
+import Button from "./button";
+import { TbLogin2 } from "react-icons/tb";
+import Logo from "./logo";
+import { BsPersonCircle } from "react-icons/bs";
+
+const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const [auth, setAuth] = useState(false);
+
+  const handleAuth = () => {
+    setAuth((prevAuth) => !prevAuth);
+  };
+
+  return (
+    <Box
+      w="100%"
+      py="1rem"
+      position={"fixed"}
+      top={"0px"}
+      bg={"#f9f9f9"}
+      zIndex={500}
+      borderBottom={"1px solid #E5EAE8"}
+    >
+      <Flex
+        width="90%"
+        maxW={"1240px"}
+        mx="auto"
+        justify={"space-between"}
+        align={"center"}
+        color="brand.200"
+      >
+        <Logo />
+        {auth ? (
+          <Box>
+            <Menu.Root>
+              <Menu.Trigger asChild>
+                <Button bg="transparent" color={"black"} size="sm">
+                  <BsPersonCircle />
+                </Button>
+              </Menu.Trigger>
+              <Portal>
+                <Menu.Positioner>
+                  <Menu.Content>
+                    <Menu.Item value="profile">
+                      <Link href={"/profile"}>Profile</Link>
+                    </Menu.Item>
+                    <Menu.Item value="my-jobs">
+                      <Link href={"/my-jobs"}>My Jobs</Link>
+                    </Menu.Item>
+                    <Menu.Separator />
+                    <Menu.Item value="export" color={"#007AFF"}>
+                      <HStack justify={"center"} w="full">
+                        Sign out
+                      </HStack>
+                    </Menu.Item>
+                  </Menu.Content>
+                </Menu.Positioner>
+              </Portal>
+            </Menu.Root>
+          </Box>
+        ) : (
+          <Flex
+            display={{ base: "none", lg: "flex" }}
+            align={"center"}
+            gap="1rem"
+          >
+            <Link href={"/jobs"} style={{ fontSize: "1rem" }}>
+              Jobs
+            </Link>
+
+            <Button
+              bg={"transparent"}
+              color="#333"
+              fontSize={"1rem"}
+              href={"/login"}
+              px=".5rem"
+              fontWeight={"500"}
+            >
+              Login
+            </Button>
+            <Button px="1rem" href={"/signup"}>
+              <TbLogin2 />
+              Sign up
+            </Button>
+          </Flex>
+        )}
+        <Box
+          onClick={() => setOpen(!open)}
+          display={{ base: "block", lg: "none" }}
+        >
+          <Icon
+            as={open ? AiOutlineClose : GiHamburgerMenu}
+            boxSize={7}
+            cursor={"pointer"}
+          />
+        </Box>
+      </Flex>
+
+      <Drawer.Root open={open} onOpenChange={(e) => setOpen(e.open)}>
+        <Portal>
+          <Drawer.Backdrop />
+          <Drawer.Positioner>
+            <Drawer.Content>
+              <Drawer.Body>
+                <Flex
+                  direction="column"
+                  rowGap={"1rem"}
+                  align={"center"}
+                  mt="4rem"
+                >
+                  <Logo />
+                  <Link
+                    href={"/jobs"}
+                    style={{ fontSize: "1rem", marginTop: "2rem" }}
+                  >
+                    Jobs
+                  </Link>
+                  <Button
+                    bg={"transparent"}
+                    color="#333"
+                    fontSize={"1rem"}
+                    href={"/login"}
+                  >
+                    Login
+                  </Button>{" "}
+                  <Button px="1rem" href={"/signup"} onClick={handleAuth}>
+                    <TbLogin2 />
+                    Sign up
+                  </Button>{" "}
+                </Flex>
+              </Drawer.Body>
+              <Drawer.CloseTrigger asChild>
+                <CloseButton size="sm" />
+              </Drawer.CloseTrigger>
+            </Drawer.Content>
+          </Drawer.Positioner>
+        </Portal>
+      </Drawer.Root>
+    </Box>
+  );
+};
+
+export default Navbar;
