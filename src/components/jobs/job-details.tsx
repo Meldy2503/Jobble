@@ -4,17 +4,22 @@ import {
   VStack,
   Flex,
   Heading,
-  Spacer,
+  // Spacer,
   HStack,
-  List,
+  // List,
 } from "@chakra-ui/react";
 import Button from "../button";
 import { RiBookMarkedLine } from "react-icons/ri";
 import { RxLightningBolt } from "react-icons/rx";
+import { Job } from "./exclusive-offers";
 
 interface SubTitleProps {
   title: string;
   text: string;
+}
+
+interface JobDetailsProps {
+  selectedJob: Job | null;
 }
 
 const SubTitle = ({ title, text }: SubTitleProps) => (
@@ -26,53 +31,99 @@ const SubTitle = ({ title, text }: SubTitleProps) => (
   </HStack>
 );
 
-const JobDetails = () => {
+const JobDetails = ({ selectedJob }: JobDetailsProps) => {
   return (
     <Box p={6} borderRadius="lg" maxW="1000px" mx="auto">
       <VStack align="start" gap={5}>
         <Flex w="full" justify={"space-between"} align={"center"}>
-          <Heading fontSize={"14px"} as={"h4"} color={"#007AFF"}>
-            Meta Company
+          <Heading fontSize={"16px"} as={"h4"} color={"#007AFF"}>
+            {selectedJob?.company_name}
           </Heading>
           <RiBookMarkedLine />
         </Flex>
-        <Flex justify={"space-between"} w={"full"} mb={"2rem"}>
+
+        {/* <Flex justify={"space-between"} w={"full"} mb={"2rem"}>
           <Box>
             <Heading size="lg" fontWeight="bold">
-              Product Designer
+              {selectedJob?.title}
             </Heading>
             <Text color="gray.500">Porto, Portugal (On Site)</Text>
           </Box>
           <Button>
             <RxLightningBolt />
-            <p>Easy Apply</p>
+            <p>Apply</p>
           </Button>
-        </Flex>
-        <SubTitle title={"Where you'll do it"} text={"Maya"} />
-        <SubTitle
-          title={"The Interview Process"}
-          text={
-            "It will have 2 stages that include a 45 min HR chat ➡️ 1h Cultural/Technical chat"
-          }
-        />
-        <SubTitle title={"Tools"} text={"Figma"} />
-        <SubTitle title={"Reporting to"} text={"Design Manager, Bruno Mota"} />
-        <SubTitle
-          title={"Your team"}
-          text={
-            "You will mainly be part of a UX Designer’s team, working with cross-functional teams and a wider group of UX department"
-          }
-        />
+        </Flex> */}
 
-        <Box width="100%" py={4} mt={6}>
-          <Heading color={"#A2A6A4"} mb={2}>
-            Job Description
-          </Heading>
-          <Heading as={"h3"}>
-            What will make your journey with us unique?
-          </Heading>
+        <VStack align="start" gap={1} my={3} w="100%">
+          <Text fontSize="lg" fontWeight="bold" w={{ base: "95%", md: "80%" }}>
+            {selectedJob?.title}
+          </Text>
+          <Flex
+            alignItems={"center"}
+            gap="1rem"
+            justifyContent={"space-between"}
+            w="100%"
+            mt="1rem"
+          >
+            <Box w="75%" fontSize="md" color="gray.500">
+              <Text>Location: {selectedJob?.location}</Text>
+              <Text mt='10px'>
+                {selectedJob?.remote === true ? "Remote" : "Onsite"}
+              </Text>
+            </Box>
+            <Flex
+              border="1px solid #007AFF"
+              px=".5rem"
+              py="0.4rem"
+              color={"#007AFF"}
+              fontSize={"0.8rem"}
+              fontWeight={"semibold"}
+              alignItems={"center"}
+              justifyContent={"center"}
+              rounded="3rem"
+              w="8rem"
+            >
+              <a
+                href={selectedJob?.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {" "}
+                Visit website
+              </a>
+            </Flex>
+            <Button>
+              <RxLightningBolt />
+              <p>Apply</p>
+            </Button>
+          </Flex>
+        </VStack>
+      </VStack>
 
-          <List.Root ml={5}>
+      {/* <SubTitle title={"Where you'll do it"} text={"Maya"} />
+      <SubTitle
+        title={"The Interview Process"}
+        text={
+          "It will have 2 stages that include a 45 min HR chat ➡️ 1h Cultural/Technical chat"
+        }
+      />
+      <SubTitle title={"Tools"} text={"Figma"} />
+      <SubTitle title={"Reporting to"} text={"Design Manager, Bruno Mota"} />
+      <SubTitle
+        title={"Your team"}
+        text={
+          "You will mainly be part of a UX Designer’s team, working with cross-functional teams and a wider group of UX department"
+        }
+      /> */}
+
+      <Box width="100%" py={4} mt={6}>
+        <Heading color={"#A2A6A4"} mb={2}>
+          Job Description
+        </Heading>
+        <Text>{selectedJob?.description}</Text>
+
+        {/* <List.Root ml={5}>
             <List.Item>
               A supportive manager who cares about your well-being and is
               invested in your professional growth.
@@ -84,9 +135,9 @@ const JobDetails = () => {
               A global company with over 2600 employees located in more than 26
               countries, including offices in 3 countries.
             </List.Item>
-          </List.Root>
-        </Box>
-        <Box
+          </List.Root> */}
+      </Box>
+      {/* <Box
           width="100%"
           py={4}
           mt={4}
@@ -136,9 +187,9 @@ const JobDetails = () => {
               commitment to achieving excellence.
             </List.Item>
           </List.Root>
-        </Box>
+        </Box> */}
 
-        <Box width="100%" py={4} borderTop="1px solid" borderColor="gray.200">
+      {/* <Box width="100%" py={4} borderTop="1px solid" borderColor="gray.200">
           <Heading color={"#A2A6A4"} mb={2}>
             Benefit
           </Heading>
@@ -174,8 +225,8 @@ const JobDetails = () => {
           </List.Root>
         </Box>
 
-        <Spacer />
-      </VStack>
+        <Spacer /> */}
+      {/* </VStack> */}
     </Box>
   );
 };

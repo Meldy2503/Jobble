@@ -8,6 +8,7 @@ interface JobCardProps {
   title?: string;
   remote?: boolean;
   location?: string;
+  description?: string;
   created_at: number;
   url?: string;
   onClick: () => void;
@@ -54,7 +55,7 @@ const JobCard: React.FC<JobCardProps> = ({
         </HStack>
 
         <VStack align="start" gap={1} my={3} w="100%">
-          <Text fontSize="lg" fontWeight="bold">
+          <Text fontSize="lg" fontWeight="bold" w={{ base: "95%", md: "80%" }}>
             {title}
           </Text>
           <Flex
@@ -64,11 +65,11 @@ const JobCard: React.FC<JobCardProps> = ({
             w="100%"
             mt="1rem"
           >
-            <Box w="75%">
-              <Text fontSize="sm" color="gray.500">
+            <Box w="75%" fontSize="sm" color="gray.500">
+              <Text >
                 Location: {location}
               </Text>
-              <Text fontSize="sm" color="gray.500">
+              <Text >
                 {remote === true ? "Remote" : "Onsite"}
               </Text>
             </Box>

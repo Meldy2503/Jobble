@@ -9,21 +9,28 @@ import JobCard from "./job-card";
 import JobDetails from "./job-details";
 import Button from "../button";
 
-interface ExclusiveOffersProps {
-  jobs: Array<{
-    slug: string;
-    title: string;
-    company_name: string;
-    remote: boolean;
-    created_at: number;
-    location: string;
-    url: string;
-  }>;
+export interface Job {
+  slug: string;
+  title: string;
+  company_name: string;
+  description?: string;
+  remote: boolean;
+  created_at: number;
+  location: string;
+  url: string;
+}
+
+export interface ExclusiveOffersProps {
+  jobs: Job[];
 }
 
 const ExclusiveOffers = ({ jobs }: ExclusiveOffersProps) => {
   const { open, toggleModal } = useToggleModal();
   const [visibleJobs, setVisibleJobs] = useState(6);
+  // const [selectedJob, setSelectedJob] = useState({});
+  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
+
+  console.log("selectedJob", selectedJob);
 
   const loadMoreJobs = () => setVisibleJobs((prev) => prev + 6);
   const showLessJobs = () => setVisibleJobs(6);
@@ -65,7 +72,10 @@ const ExclusiveOffers = ({ jobs }: ExclusiveOffersProps) => {
                 location={job.location}
                 created_at={job.created_at ?? Math.floor(Date.now() / 1000)}
                 url={job.url}
-                onClick={toggleModal}
+                onClick={() => {
+                  toggleModal();
+                  setSelectedJob(job);
+                }}
               />
             </motion.div>
           ))}
@@ -99,7 +109,7 @@ const ExclusiveOffers = ({ jobs }: ExclusiveOffersProps) => {
       </Flex>
 
       <Modal size="xl" open={open} onOpenChange={toggleModal}>
-        <JobDetails />
+        <JobDetails selectedJob={selectedJob} />
       </Modal>
     </Box>
   );
