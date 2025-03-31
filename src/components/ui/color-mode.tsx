@@ -107,10 +107,3 @@ export const DarkMode = React.forwardRef<HTMLSpanElement, SpanProps>(
     );
   }
 );
-
-
-// #1F222A
-// #757575
-// #616161
-// #35383F
-// #E0E0E0

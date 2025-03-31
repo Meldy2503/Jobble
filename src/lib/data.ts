@@ -6,12 +6,6 @@ import graphic from "@/assets/graphic.svg";
 import video from "@/assets/video.svg";
 import web from "@/assets/web.svg";
 import project from "@/assets/project.svg";
-import asma from "@/assets/jobs/asma.svg";
-import najma from "@/assets/jobs/najma.svg";
-import mohi from "@/assets/jobs/mohi.svg";
-import fatima from "@/assets/jobs/fatima.svg";
-import eli from "@/assets/jobs/eli.svg";
-import mitra from "@/assets/jobs/mitra.svg";
 
 interface JobCategory {
   title: string;
@@ -59,51 +53,6 @@ export const jobCategories: JobCategory[] = [
     title: "Video Editor",
     jobsAvailable: 120,
     logo: video,
-  },
-];
-
-export const jobs = [
-  {
-    company: "ASMA",
-    title: "Developer",
-    location: "Barcelona, Spain (Hybrid)",
-    timePosted: "1d",
-    logo: asma,
-  },
-  {
-    company: "NAJMA",
-    title: "UI/UX Designer",
-    location: "Porto, Portugal (On Site)",
-    timePosted: "2d",
-    logo: najma,
-  },
-  {
-    company: "MOHI",
-    title: "Game Designer",
-    location: "Rome, Italy (On Site)",
-    timePosted: "3d",
-    logo: mohi,
-  },
-  {
-    company: "FATIMA",
-    title: "Motion Designer",
-    location: "Remote",
-    timePosted: "6d",
-    logo: fatima,
-  },
-  {
-    company: "ELI",
-    title: "Graphic Designer",
-    location: "Germany (Hybrid)",
-    timePosted: "7d",
-    logo: eli,
-  },
-  {
-    company: "MITRA Company",
-    title: "Service Designer",
-    location: "London (On Site)",
-    timePosted: "1d",
-    logo: mitra,
   },
 ];
 
