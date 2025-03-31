@@ -1,41 +1,35 @@
-import { Box, Text, Flex, VStack, HStack } from "@chakra-ui/react";
+import { FormatDate } from "@/lib/format-date";
+import { Box, Flex, HStack, Text, VStack } from "@chakra-ui/react";
+import Image from "next/image";
 import React from "react";
 import { BsBookmarkDash } from "react-icons/bs";
 import Button from "../button";
 
 interface JobCardProps {
-  company_name?: string;
   title?: string;
-  remote?: boolean;
-  location?: string;
-  description?: string;
-  created_at: number;
+  company_name?: string;
+  company_logo?: string;
+  category?: string;
+  salary?: string;
+  candidate_required_location?: string;
+  job_type?: string;
+  publication_date?: string;
   url?: string;
   onClick: () => void;
 }
 
 const JobCard: React.FC<JobCardProps> = ({
-  company_name,
   title,
-  location,
-  created_at,
-  remote,
+  company_name,
+  company_logo,
+  category,
+  salary,
+  candidate_required_location,
+  job_type,
+  publication_date,
   url,
   onClick,
 }) => {
-  const formatDate = (timestamp: number): string => {
-    const createdDate = new Date(timestamp * 1000); // Convert seconds to milliseconds
-    const today = new Date();
-    const diffDays = Math.floor(
-      (today.getTime() - createdDate.getTime()) / (1000 * 60 * 60 * 24)
-    );
-
-    return diffDays === 0
-      ? "Today"
-      : diffDays === 1
-      ? "1 day ago"
-      : `${diffDays} days ago`;
-  };
   return (
     <Box
       borderWidth="1px"
@@ -44,18 +38,30 @@ const JobCard: React.FC<JobCardProps> = ({
       shadow="md"
       bg="#fff"
       _hover={{ bg: "#F8FCFF" }}
-      cursor={"pointer"}
     >
       <VStack justify="space-between" align="start">
         <HStack justify={"space-between"} w="100%">
-          <Text fontWeight="bold" fontSize="sm" color="gray.600">
-            {company_name}
-          </Text>
-          <BsBookmarkDash size={18} cursor={"pointer"} />
+          <Flex alignItems={"center"} gap=".6rem">
+            <Image
+              src={company_logo || "../../assets/amazon.svg"}
+              alt={company_name || "company name"}
+              width={30}
+              height={30}
+            />
+            <Text truncate fontWeight="bold" fontSize="md" color="gray.600">
+              {company_name}
+            </Text>
+          </Flex>
+          <BsBookmarkDash size={20} cursor={"pointer"} />
         </HStack>
-
-        <VStack align="start" gap={1} my={3} w="100%">
-          <Text fontSize="lg" fontWeight="bold" w={{ base: "95%", md: "80%" }}>
+        <VStack
+          align="start"
+          gap={1}
+          w="100%"
+          h={{ base: "inherit", md: "12rem", lg: "10rem" }}
+          mt="10px"
+        >
+          <Text fontSize="lg" fontWeight="bold" w="95%">
             {title}
           </Text>
           <Flex
@@ -65,39 +71,52 @@ const JobCard: React.FC<JobCardProps> = ({
             w="100%"
             mt="1rem"
           >
-            <Box w="75%" fontSize="sm" color="gray.500">
-              <Text >
-                Location: {location}
-              </Text>
-              <Text >
-                {remote === true ? "Remote" : "Onsite"}
-              </Text>
-            </Box>
-            <Flex
-              border="1px solid #007AFF"
-              px=".5rem"
-              py="0.4rem"
-              color={"#007AFF"}
-              fontSize={"0.8rem"}
-              fontWeight={"semibold"}
-              alignItems={"center"}
-              justifyContent={"center"}
-              rounded="3rem"
-              w="8rem"
+            <Box
+              w={{ base: "100%", sm: "75%" }}
+              fontSize="15px"
+              color="gray.500"
             >
-              <a href={url} target="_blank" rel="noopener noreferrer">
-                {" "}
-                Visit website
-              </a>
-            </Flex>
+              <Text>Location: {candidate_required_location}</Text>
+              <Text mt="3px">{category}</Text>
+            </Box>
+            <Box>
+              <Text mb="8px" fontSize="15px">
+                {job_type}
+              </Text>
+
+              <Flex
+                border="1px solid #007AFF"
+                px=".1rem"
+                py="0.3rem"
+                color={"#007AFF"}
+                fontSize={"0.8rem"}
+                fontWeight={"semibold"}
+                alignItems={"center"}
+                justifyContent={"center"}
+                rounded="3rem"
+                w="7rem"
+              >
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                  {" "}
+                  Visit website
+                </a>
+              </Flex>
+            </Box>
           </Flex>
+          <Text fontSize={"15px"} mt={{ base: "10px", sm: "5px" }} truncate>
+            {salary?.startsWith("competitive") ? "competitive salary" : salary}
+          </Text>
         </VStack>
       </VStack>
-      <Flex justify="space-between" alignItems="center" mt={3}>
+      <Flex
+        justify="space-between"
+        alignItems="center"
+        mt={{ base: "2rem", sm: "1rem" }}
+      >
         <Button
           bg="#CFEAFE"
-          px="1rem"
-          py="0.7rem"
+          px=".8rem"
+          py="0.5rem"
           color={"#007AFF"}
           fontSize={"0.8rem"}
           fontWeight={"semibold"}
@@ -105,9 +124,11 @@ const JobCard: React.FC<JobCardProps> = ({
         >
           View Details
         </Button>
-        <Text fontSize="xs" color="gray.400">
-          {formatDate(created_at)}
-        </Text>
+        {publication_date && (
+          <Text fontSize="sm" color="gray.400">
+            {FormatDate(publication_date)}
+          </Text>
+        )}
       </Flex>
     </Box>
   );

@@ -133,16 +133,33 @@ function Footer() {
           </Flex>
         </Box>
       </VStack>
-      <Box
+      <Flex
         textAlign="center"
         borderTopWidth="1px"
         borderColor="gray.200"
         py="2rem"
+        alignItems={"center"}
+        justifyContent="center"
+        gap="1rem"
+        flexWrap={"wrap"}
+
       >
-        <Text fontWeight={"500"} mt={4} color={"#407BFF"}>
+        {/* Compliance with Remotive - Adding source link */}
+        <Text>
+          Jobs sourced from{" "}
+          <a
+            href="https://remotive.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#007AFF", textDecoration: "underline" }}
+          >
+            Remotive.io
+          </a>
+        </Text>
+        <Text fontWeight={"500"} color={"#407BFF"}>
           GoHire Copyright © 2025
         </Text>
-      </Box>
+      </Flex>
     </Box>
   );
 }

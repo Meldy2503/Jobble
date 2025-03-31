@@ -10,9 +10,10 @@ interface ButtonProps extends ChakraButtonProps {
   href?: string;
   bg?: string;
   px?: string;
+  py?: string;
 }
 
-const Button = ({ children, href, bg, px, ...props }: ButtonProps) => {
+const Button = ({ children, href, bg, px, py, ...props }: ButtonProps) => {
   if (href) {
     return (
       <Link href={href} passHref>
@@ -21,6 +22,7 @@ const Button = ({ children, href, bg, px, ...props }: ButtonProps) => {
           fontSize={"1rem"}
           fontWeight={"semibold"}
           px={px ?? "1.5rem"}
+          py={py ?? ".5rem"}
           {...props}
           bg={bg ?? "#007AFF"}
         >
@@ -36,6 +38,7 @@ const Button = ({ children, href, bg, px, ...props }: ButtonProps) => {
       fontSize={"1rem"}
       fontWeight={"semibold"}
       px={px ?? "1.5rem"}
+      py={py ?? ".5rem"}
       bg={bg ?? "#007AFF"}
       {...props}
     >

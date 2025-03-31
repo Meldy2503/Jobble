@@ -8,17 +8,7 @@ import Modal from "../ui/modal";
 import JobCard from "./job-card";
 import JobDetails from "./job-details";
 import Button from "../button";
-
-export interface Job {
-  slug: string;
-  title: string;
-  company_name: string;
-  description?: string;
-  remote: boolean;
-  created_at: number;
-  location: string;
-  url: string;
-}
+import { Job } from "@/app/jobs/page";
 
 export interface ExclusiveOffersProps {
   jobs: Job[];
@@ -27,10 +17,7 @@ export interface ExclusiveOffersProps {
 const ExclusiveOffers = ({ jobs }: ExclusiveOffersProps) => {
   const { open, toggleModal } = useToggleModal();
   const [visibleJobs, setVisibleJobs] = useState(6);
-  // const [selectedJob, setSelectedJob] = useState({});
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
-
-  console.log("selectedJob", selectedJob);
 
   const loadMoreJobs = () => setVisibleJobs((prev) => prev + 6);
   const showLessJobs = () => setVisibleJobs(6);
@@ -59,7 +46,7 @@ const ExclusiveOffers = ({ jobs }: ExclusiveOffersProps) => {
         <AnimatePresence>
           {jobs.slice(0, visibleJobs).map((job) => (
             <motion.div
-              key={job.slug}
+              key={job.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -67,10 +54,13 @@ const ExclusiveOffers = ({ jobs }: ExclusiveOffersProps) => {
             >
               <JobCard
                 company_name={job.company_name}
+                company_logo={job.company_logo}
                 title={job.title}
-                remote={job.remote}
-                location={job.location}
-                created_at={job.created_at ?? Math.floor(Date.now() / 1000)}
+                category={job.category}
+                job_type={job.job_type}
+                salary={job.salary}
+                candidate_required_location={job.candidate_required_location}
+                publication_date={job.publication_date}
                 url={job.url}
                 onClick={() => {
                   toggleModal();

@@ -6,8 +6,9 @@ const nextConfig: NextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: ["www.arbeitnow.com"], // Allows images from this domain
+    domains: ["remotive.com"], // Allows images from this domain
   },
 };
 
 export default nextConfig;
+

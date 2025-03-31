@@ -1,6 +1,5 @@
 import { CloseButton, Dialog, Portal } from "@chakra-ui/react";
 import Button from "../button";
-// import Button from "../button";
 
 interface ModalProps {
   open: boolean;
@@ -30,7 +29,12 @@ const Modal = ({
       <Portal>
         <Dialog.Backdrop />
         <Dialog.Positioner>
-          <Dialog.Content rounded={".5rem"} py="2rem" px="1.5rem" m=".2rem">
+          <Dialog.Content
+            rounded={".5rem"}
+            py="2rem"
+            px={{ base: ".4rem", md: "1rem" }}
+            m=".2rem"
+          >
             <Dialog.Header>
               <Dialog.Title mb="1.5rem">{title}</Dialog.Title>
             </Dialog.Header>
