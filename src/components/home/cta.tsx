@@ -22,7 +22,7 @@ const Cta = () => {
       >
         <Heading
           as="h1"
-          fontSize={{ base: "2rem", md: "2.5rem", lg: "3rem" }}
+          fontSize={{ base: "1.9rem", md: "2.5rem", lg: "3rem" }}
           lineHeight={1.3}
         >
           Ready for a career change? Start applying today!

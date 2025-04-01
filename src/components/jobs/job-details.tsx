@@ -112,7 +112,7 @@ const JobDetails = ({ selectedJob }: JobDetailsProps) => {
                 </Box>
               ))}
             </Flex>
-            <Button px="1.5rem">
+            <Button href={'/application-form'} px="1.5rem">
               <RxLightningBolt />
               <Text>Apply</Text>
             </Button>

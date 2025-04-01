@@ -32,7 +32,7 @@ const CreateProfile = () => {
             </Heading>
             <Heading
               as="h3"
-              fontSize={{ base: "2rem", md: "2.5rem", lg: "3rem" }}
+              fontSize={{ base: "1.9rem", md: "2.5rem", lg: "3rem" }}
               lineHeight={1.3}
               fontWeight="bold"
             >
@@ -43,7 +43,7 @@ const CreateProfile = () => {
               search, and apply directly to companies with ease. Stay updated
               and take the next step in your career today!
             </Text>
-            <Button href="/jobs" mt={4} py="1.4rem">
+            <Button href="/signup" mt={4} py="1.4rem">
               Create an Account
             </Button>
           </Box>

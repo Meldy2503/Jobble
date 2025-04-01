@@ -20,7 +20,7 @@ function JobSearch() {
     <Box>
       <Heading
         textAlign="center"
-        fontSize={{ base: "2rem", md: "2.5rem", lg: "3rem" }}
+        fontSize={{ base: "1.9rem", md: "2.5rem", lg: "3rem" }}
         lineHeight={1.3}
         my={8}
         fontWeight={"semibold"}

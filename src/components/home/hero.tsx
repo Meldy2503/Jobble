@@ -5,13 +5,10 @@ import Button from "../button";
 const Hero = () => {
   return (
     <Flex
-      h="85vh"
-      backgroundImage={`linear-gradient(rgba(12, 77, 112, 0.9),rgb(0, 122, 255, 0.8)), url(${
+      h="87vh"
+      backgroundImage={`linear-gradient(rgba(12, 0, 0, 0.7),rgb(0, 122, 255, 0.8)), url(${
         bgImg.src || bgImg
       })`}
-      // backgroundImage={`linear-gradient(rgba(12, 0, 0, 0.7),rgb(0, 122, 255, 0.8)), url(${
-      //   bgImg.src || bgImg
-      // })`}
       backgroundSize="cover"
       backgroundPosition="top"
       color="white"

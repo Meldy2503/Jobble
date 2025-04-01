@@ -13,17 +13,16 @@ const Companies = () => {
       <div className="animate-container">
         <Heading
           as="h3"
-          fontSize={{ base: "2rem", md: "2.5rem", lg: "3rem" }}
+          fontSize={{ base: "1.9rem", md: "2.5rem", lg: "3rem" }}
           lineHeight={1.3}
           fontWeight="bold"
           textAlign="center"
           mb="3rem"
         >
-          Work with Exciting
           <Box as="span" color="#007aff" mx=".5rem">
-            Companies
+            Clients
           </Box>
-          In The World
+          Around the World
         </Heading>
         <div className="animate">
           {[...Array(5)].map((_, index) => (

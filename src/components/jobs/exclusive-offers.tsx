@@ -25,7 +25,7 @@ const ExclusiveOffers = ({ jobs }: ExclusiveOffersProps) => {
   return (
     <Box pt="3rem" pb="8rem">
       <Heading
-        fontSize={{ base: "1.5rem", md: "2rem", lg: "2rem" }}
+        fontSize={{ base: "1.5rem", md: "2rem"}}
         fontWeight={"semibold"}
         textAlign="center"
         mx="auto"

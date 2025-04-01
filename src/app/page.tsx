@@ -1,7 +1,7 @@
 import Footer from "@/components/footer";
 import Categories from "@/components/home/categories";
 import Companies from "@/components/home/companies";
-import CountUp from "@/components/home/count-up";
+import CountStats from "@/components/home/count-up";
 import CreateProfile from "@/components/home/create-profile";
 import Cta from "@/components/home/cta";
 import Hero from "@/components/home/hero";
@@ -14,9 +14,9 @@ export default function Home() {
     <Box bg={"#f9f9f9"}>
       <Navbar />
       <Hero />
-      <CountUp />
-      <Companies />
+      <CountStats />
       <Categories />
+      <Companies />
       <CreateProfile />
       <HowItWorks />
       <Cta />

@@ -34,6 +34,7 @@ a {
   min-width: 250%;
   animation: marquee 25s linear infinite;
   margin-bottom: 4rem;
+  /* filter: saturate(0); */
 }
 
 .animate:hover {

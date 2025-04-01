@@ -124,7 +124,7 @@ const Navbar = () => {
                   align={"center"}
                   mt="4rem"
                 >
-                  <Logo />
+                  <Logo/>
                   <Link
                     href={"/jobs"}
                     style={{ fontSize: "1rem", marginTop: "2rem" }}

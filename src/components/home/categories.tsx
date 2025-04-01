@@ -66,21 +66,27 @@ const CategoriesCard = ({
 
 const Categories = () => {
   return (
-    <Box position={"relative"}>
-      <Image
-        src={pattern}
-        width={250}
-        height={250}
-        alt="lady"
-        style={{ position: "absolute", top: "0", right: "-2rem" }}
-      />
+    <Box position={"relative"} zIndex="2">
+      <Box zIndex={"1"}>
+        <Image
+          src={pattern}
+          width={250}
+          height={250}
+          alt="lady"
+          style={{
+            position: "absolute",
+            top: "0",
+            right: "-2rem",
+          }}
+        />
+      </Box>
       <Wrapper>
         <Flex justify="center" align="center" h="4rem">
           <Heading
             as="h2"
             size="5xl"
             fontWeight="bold"
-            fontSize={{ base: "2rem", md: "2.5rem", lg: "3rem" }}
+            fontSize={{ base: "1.9rem", md: "2.5rem", lg: "3rem" }}
             lineHeight={1.3}
           >
             Choose Categories

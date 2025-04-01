@@ -23,11 +23,12 @@ function Footer() {
           maxW="1240px"
           color="gray.700"
           mx="auto"
-          w={{ base: "95%", md: "90%" }}
+          w="90%"
         >
           <Flex
             direction={{ base: "column", lg: "row" }}
             justify="space-between"
+            gap='3rem'
           >
             <Box w="30%">
               <Logo />
