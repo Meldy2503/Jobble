@@ -140,7 +140,8 @@ export const InputElement = ({
           py="1.5rem"
           px="1rem"
           fontSize={"1rem"}
-          autoresize
+          height={'13rem'}
+          // autoresize
           size={"xl"}
           placeholder={placeholder || label}
           {...props}

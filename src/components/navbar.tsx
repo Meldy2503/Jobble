@@ -83,7 +83,9 @@ const Navbar = () => {
             <Link href={"/jobs"} style={{ fontSize: "1rem" }}>
               Jobs
             </Link>
-
+            <Link href={"/contact-us"} style={{ fontSize: "1rem" }}>
+              Contact Us
+            </Link>
             <Button
               bg={"transparent"}
               color="#333"
@@ -124,12 +126,18 @@ const Navbar = () => {
                   align={"center"}
                   mt="4rem"
                 >
-                  <Logo/>
+                  <Logo />
                   <Link
                     href={"/jobs"}
                     style={{ fontSize: "1rem", marginTop: "2rem" }}
                   >
                     Jobs
+                  </Link>
+                  <Link
+                    href={"/contact-us"}
+                    style={{ fontSize: "1rem", marginTop: "2rem" }}
+                  >
+                    Contact Us
                   </Link>
                   <Button
                     bg={"transparent"}
