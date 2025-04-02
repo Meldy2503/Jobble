@@ -11,7 +11,7 @@ The **Job Application Platform** is a modern web application built with **Next.j
 - 📅 **Publication Date Formatting** – Jobs display relative time (e.g., "Today", "3 days ago").  
 - 🖼 **Optimized Image Loading** – Uses Next.js Image component for efficient image handling.  
 - 🔗 **SEO & Social Sharing** – Proper metadata and structured data for better visibility.
-- **Light & Dark modes** - Users can toogle bewteen light and dark modes 
+- 📝 **Light & Dark modes** - Users can toogle bewteen light and dark modes 
 
 ## Tech Stack  
 - **Frontend**: Next.js (React, TypeScript, Chakra UI)  
