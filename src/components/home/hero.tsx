@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <Flex
       h="87vh"
-      backgroundImage={`linear-gradient(rgba(12, 0, 0, 0.7),rgb(0, 122, 255, 0.8)), url(${
+      backgroundImage={`linear-gradient(rgba(12, 0, 0, 0.8),rgb(0, 122, 255, 0.9)), url(${
         bgImg.src || bgImg
       })`}
       backgroundSize="cover"
@@ -38,7 +38,7 @@ const Hero = () => {
           href={"/jobs"}
           bg="white"
           mt="3rem"
-          color={"#007aff"}
+          color={"#006adc"}
           px="2.5rem"
           py="1.4rem"
         >

@@ -8,7 +8,8 @@ import pattern from "@/assets/pattern.svg";
 
 const CreateProfile = () => {
   return (
-    <Box position={"relative"}>
+    <Box position={'relative'}>
+      <Box display={{ base: "none", lg: "block" }} >
       <Image
         src={pattern}
         width={250}
@@ -16,6 +17,7 @@ const CreateProfile = () => {
         alt="lady"
         style={{ position: "absolute", top: "0", left: "0" }}
       />
+      </Box>
       <Wrapper>
         <Flex
           justify="space-between"
@@ -27,7 +29,7 @@ const CreateProfile = () => {
             <Image src={lady} width={1500} height={1500} alt="lady" />
           </Box>
           <Box w={{ base: "100%", md: "47%" }}>
-            <Heading as="h1" size="xl" mb={7} color="#007aff" fontWeight="bold">
+            <Heading as="h2" size="xl" mb={7} color="#006adc" fontWeight="bold">
               Create your Profile
             </Heading>
             <Heading

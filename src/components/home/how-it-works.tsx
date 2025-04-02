@@ -9,13 +9,15 @@ import pattern from "@/assets/pattern.svg";
 const HowItWorks = () => {
   return (
     <Box position={"relative"}>
-      <Image
-        src={pattern}
-        width={250}
-        height={250}
-        alt="lady"
-        style={{ position: "absolute", top: "-5rem", right: "0" }}
-      />
+      <Box display={{ base: "none", lg: "block" }}>
+        <Image
+          src={pattern}
+          width={250}
+          height={250}
+          alt="lady"
+          style={{ position: "absolute", top: "-5rem", right: "0" }}
+        />
+      </Box>
       <Wrapper pt={{ base: "5rem", md: "7rem" }}>
         <Flex
           justify="space-between"
@@ -24,7 +26,7 @@ const HowItWorks = () => {
           flexDir={{ base: "column", md: "row" }}
         >
           <Box w={{ base: "100%", md: "50%" }}>
-            <Heading as="h1" size="xl" mb={6} color="#007aff" fontWeight="bold">
+            <Heading as="h2" size="xl" mb={6} color="#006adc" fontWeight="bold">
               How it Works
             </Heading>
             <Heading
@@ -37,7 +39,7 @@ const HowItWorks = () => {
             </Heading>
             <Box spaceY="1.5rem" mt="2rem">
               <Box>
-                <Heading as="h4" size="lg" mb={2} color="#007aff">
+                <Heading as="h4" size="lg" mb={2} color="#006adc">
                   {" "}
                   Upload Your Best Resume and Portfolio
                 </Heading>
@@ -47,7 +49,7 @@ const HowItWorks = () => {
                 </Text>
               </Box>
               <Box>
-                <Heading as="h4" size="lg" mb={2} color="#007aff">
+                <Heading as="h4" size="lg" mb={2} color="#006adc">
                   Stay Updated with Notifications
                 </Heading>
                 <Text w={{ base: "100%", lg: "90%" }}>
@@ -56,7 +58,7 @@ const HowItWorks = () => {
                 </Text>
               </Box>
               <Box>
-                <Heading as="h4" size="lg" mb={2} color="#007aff">
+                <Heading as="h4" size="lg" mb={2} color="#006adc">
                   Apply to Top Companies
                 </Heading>
                 <Text w={{ base: "100%", lg: "90%" }}>

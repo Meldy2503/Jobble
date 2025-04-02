@@ -76,7 +76,7 @@ function AuthWrapper({ children, authType }: AuthWrapperProps) {
               <Link
                 as={NextLink}
                 href="/login"
-                color="blue.500"
+                color="#006adc"
                 style={{ fontWeight: "semibold" }}
               >
                 Login
@@ -88,7 +88,7 @@ function AuthWrapper({ children, authType }: AuthWrapperProps) {
               <Link
                 as={NextLink}
                 href="/signup"
-                color="blue.500"
+                color="#006adc"
                 style={{ fontWeight: "semibold" }}
               >
                 Sign up

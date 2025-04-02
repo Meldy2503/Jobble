@@ -24,7 +24,7 @@ const Button = ({ children, href, bg, px, py, ...props }: ButtonProps) => {
           px={px ?? "1.5rem"}
           py={py ?? ".5rem"}
           {...props}
-          bg={bg ?? "#007AFF"}
+          bg={bg ?? "#006adc"}
         >
           {children}
         </ChakraButton>
@@ -39,7 +39,7 @@ const Button = ({ children, href, bg, px, py, ...props }: ButtonProps) => {
       fontWeight={"semibold"}
       px={px ?? "1.5rem"}
       py={py ?? ".5rem"}
-      bg={bg ?? "#007AFF"}
+      bg={bg ?? "#006adc"}
       {...props}
     >
       {children}

@@ -102,6 +102,7 @@ export const InputElement = ({
           {/* Hidden native input that opens the file picker */}
           <Input
             type="file"
+            required
             display="none"
             onChange={handleFileChange}
             {...props}
@@ -116,6 +117,7 @@ export const InputElement = ({
         <Box pos="relative" w="full">
           <Input
             className="peer"
+            required
             fontSize={"1rem"}
             py="1.5rem"
             px="1rem"
@@ -139,6 +141,7 @@ export const InputElement = ({
         <Textarea
           py="1.5rem"
           px="1rem"
+          required
           fontSize={"1rem"}
           height={'13rem'}
           // autoresize
@@ -163,6 +166,7 @@ export const InputElement = ({
       <Input
         className="peer"
         py="1.5rem"
+        required
         px="1rem"
         fontSize={"1rem"}
         placeholder={placeholder || label}

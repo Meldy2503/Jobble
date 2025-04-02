@@ -132,7 +132,7 @@ const Biodata = () => {
               as={"h3"}
               mt={"-0.2rem"}
               mb="1.5rem"
-              color="#007AFF"
+              color="#006adc"
               fontWeight={"bold"}
             >
               Successfully!

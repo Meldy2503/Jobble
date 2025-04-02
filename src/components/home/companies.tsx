@@ -10,7 +10,7 @@ import Wrapper from "../ui/wrapper";
 const Companies = () => {
   return (
     <Wrapper>
-      <div className="animate-container">
+      <Box className="animate-container" mb={{base: '0', md: '2rem'}}>
         <Heading
           as="h3"
           fontSize={{ base: "1.9rem", md: "2.5rem", lg: "3rem" }}
@@ -19,12 +19,12 @@ const Companies = () => {
           textAlign="center"
           mb="3rem"
         >
-          <Box as="span" color="#007aff" mx=".5rem">
+          <Box as="span" color="#006adc" mx=".5rem">
             Clients
           </Box>
           Around the World
         </Heading>
-        <div className="animate">
+        <Box className="animate">
           {[...Array(5)].map((_, index) => (
             <React.Fragment key={index}>
               <Image src={google} width={125} height={200} alt="google" />
@@ -33,8 +33,8 @@ const Companies = () => {
               <Image src={airbnb} width={140} height={200} alt="airbnb" />
             </React.Fragment>
           ))}
-        </div>
-      </div>
+        </Box>
+      </Box>
     </Wrapper>
   );
 };

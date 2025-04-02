@@ -18,17 +18,11 @@ function Footer() {
   return (
     <Box bg={"#f9f9f9"}>
       <VStack borderTopWidth="1px" borderColor="gray.200" py={8}>
-        <Box
-          as="footer"
-          maxW="1240px"
-          color="gray.700"
-          mx="auto"
-          w="90%"
-        >
+        <Box as="footer" maxW="1240px" color="gray.700" mx="auto" w="90%">
           <Flex
             direction={{ base: "column", lg: "row" }}
             justify="space-between"
-            gap='3rem'
+            gap="3rem"
           >
             <Box w="30%">
               <Logo />
@@ -143,7 +137,6 @@ function Footer() {
         justifyContent="center"
         gap="1rem"
         flexWrap={"wrap"}
-
       >
         {/* Compliance with Remotive - Adding source link */}
         <Text>
@@ -152,12 +145,12 @@ function Footer() {
             href="https://remotive.io"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: "#007AFF", textDecoration: "underline" }}
+            style={{ color: "#006adc", textDecoration: "underline" }}
           >
             Remotive.io
           </a>
         </Text>
-        <Text fontWeight={"500"} color={"#407BFF"}>
+        <Text fontWeight={"500"} color={"#006adc"}>
           GoHire Copyright © 2025
         </Text>
       </Flex>

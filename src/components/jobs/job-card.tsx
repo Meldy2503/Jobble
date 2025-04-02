@@ -85,10 +85,10 @@ const JobCard: React.FC<JobCardProps> = ({
               </Text>
 
               <Flex
-                border="1px solid #007AFF"
+                border="1px solid #006adc"
                 px=".1rem"
                 py="0.3rem"
-                color={"#007AFF"}
+                color={"#006adc"}
                 fontSize={"0.8rem"}
                 fontWeight={"semibold"}
                 alignItems={"center"}
@@ -114,18 +114,18 @@ const JobCard: React.FC<JobCardProps> = ({
         mt={{ base: "2rem", sm: "1rem" }}
       >
         <Button
-          bg="#CFEAFE"
+          bg="#dceefc"
           px=".8rem"
           py="0.5rem"
-          color={"#007AFF"}
-          fontSize={"0.8rem"}
+          color={"#0261c7"}
+          fontSize={"0.85rem"}
           fontWeight={"semibold"}
           onClick={onClick}
         >
           View Details
         </Button>
         {publication_date && (
-          <Text fontSize="sm" color="gray.400">
+          <Text fontSize="sm" color="gray.600">
             {FormatDate(publication_date)}
           </Text>
         )}

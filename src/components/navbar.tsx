@@ -64,7 +64,7 @@ const Navbar = () => {
                       <Link href={"/my-jobs"}>My Jobs</Link>
                     </Menu.Item>
                     <Menu.Separator />
-                    <Menu.Item value="export" color={"#007AFF"}>
+                    <Menu.Item value="export" color={"#006adc"}>
                       <HStack justify={"center"} w="full">
                         Sign out
                       </HStack>
@@ -135,7 +135,7 @@ const Navbar = () => {
                   </Link>
                   <Link
                     href={"/contact-us"}
-                    style={{ fontSize: "1rem", marginTop: "2rem" }}
+                    style={{ fontSize: "1rem" }}
                   >
                     Contact Us
                   </Link>

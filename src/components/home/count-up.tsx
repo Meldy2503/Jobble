@@ -26,14 +26,14 @@ const jobStats = [
 const Counter: React.FC<CountStatsProps> = ({ stats }) => {
   return (
     <Flex
-      justifyContent={{base: "center", lg: "space-between"}}
+      justifyContent={{ base: "center", lg: "space-between" }}
       alignItems="center"
       gap="2rem"
-      color="#7c7b7b"
+      color="#5b5b5b"
       pt="1rem"
       fontFamily={"Chakra Petch"}
       flexWrap={"wrap"}
-      mx='auto'
+      mx="auto"
     >
       {stats.map((stat, index) => (
         <Flex
@@ -50,7 +50,7 @@ const Counter: React.FC<CountStatsProps> = ({ stats }) => {
             <CountUp start={0} end={stat.value} delay={0} />
             {stat.suffix}
           </Box>
-          <Text textAlign={'center'}>{stat.label}</Text>
+          <Text textAlign={"center"}>{stat.label}</Text>
         </Flex>
       ))}
     </Flex>

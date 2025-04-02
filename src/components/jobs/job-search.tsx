@@ -44,7 +44,7 @@ function JobSearch() {
               value={position}
               onChange={(e) => setPosition(e.target.value)}
               outline={"none"}
-              px='1rem'
+              px="1rem"
               fontSize={"1.1rem"}
             />
           </Field.Root>
@@ -61,11 +61,12 @@ function JobSearch() {
           </Field.Root>
           <IconButton
             type="submit"
-            bg={"#007AFF"}
+            bg={"#006adc"}
             color={"white"}
             rounded={"full"}
             px={4}
-            py='1.5rem'
+            py="1.5rem"
+            aria-label="Search"
           >
             <FiSearch />
           </IconButton>

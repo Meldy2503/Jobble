@@ -23,13 +23,13 @@ const CategoriesCard = ({
       display="flex"
       alignItems="start"
       gap={8}
-      p={{base: 4, sm: 7}}
+      p={{ base: 4, sm: 7 }}
       maxW="1280px"
       borderRadius="2rem"
       bg="white"
       boxShadow="0px 0px 16px rgb(221, 240, 255)"
       _hover={{
-        bg: "#007aff",
+        bg: "#006adc",
         color: "white",
         "& h3": { color: "white" },
         "& p": { color: "white" },
@@ -56,7 +56,7 @@ const CategoriesCard = ({
         <Heading as="h3" size="xl" fontWeight="bold" color="#333">
           {title}
         </Heading>
-        <Text fontSize="1rem" color="#828282" mt={2}>
+        <Text fontSize="1rem" color="#5d5c5c" mt={2}>
           {jobsAvailable} jobs available
         </Text>
       </Box>
@@ -67,7 +67,7 @@ const CategoriesCard = ({
 const Categories = () => {
   return (
     <Box position={"relative"} zIndex="2">
-      <Box zIndex={"1"}>
+      <Box display={{ base: "none", lg: "block" }}>
         <Image
           src={pattern}
           width={250}

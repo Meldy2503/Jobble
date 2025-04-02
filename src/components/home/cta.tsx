@@ -18,7 +18,7 @@ const Cta = () => {
         textAlign={"center"}
         color={"white"}
         mb="7rem"
-        px={{base: '1rem', md: '2rem'}}
+        px={{ base: "1rem", md: "2rem" }}
       >
         <Heading
           as="h1"
@@ -31,7 +31,7 @@ const Cta = () => {
           fontSize={"1.1rem"}
           fontWeight={"500"}
           my="1rem"
-          w={{base: '90%',md:'70%', lg:'50%'}}
+          w={{ base: "90%", md: "70%", lg: "50%" }}
           textAlign={"center"}
           mx="auto"
         >
@@ -42,7 +42,7 @@ const Cta = () => {
           href="/jobs"
           bg="white"
           fontWeight={"bold"}
-          color={"#007aff"}
+          color={"#006adc"}
           mt={"1rem"}
           px="3rem"
         >

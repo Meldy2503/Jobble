@@ -42,10 +42,10 @@ const JobDetails = ({ selectedJob }: JobDetailsProps) => {
             </Text>
           </Flex>
           <Flex
-            border="1px solid #007AFF"
+            border="1px solid #006adc"
             px=".1rem"
             py="0.3rem"
-            color={"#007AFF"}
+            color={"#006adc"}
             fontSize={"0.8rem"}
             fontWeight={"semibold"}
             alignItems={"center"}
@@ -112,7 +112,7 @@ const JobDetails = ({ selectedJob }: JobDetailsProps) => {
                 </Box>
               ))}
             </Flex>
-            <Button href={'/application-form'} px="1.5rem">
+            <Button href={"/application-form"} px="1.5rem">
               <RxLightningBolt />
               <Text>Apply</Text>
             </Button>
@@ -125,11 +125,7 @@ const JobDetails = ({ selectedJob }: JobDetailsProps) => {
           Job Description
         </Heading>
         {selectedJob?.description && (
-          <Box className="description"
-          
-          >
-            {parse(selectedJob?.description)}
-          </Box>
+          <Box className="description">{parse(selectedJob?.description)}</Box>
         )}
       </Box>
     </Box>
