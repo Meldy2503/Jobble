@@ -2,7 +2,7 @@
 
 import useToggleModal from "@/hooks/use-toggle-modal";
 import { useState } from "react";
-import { Box, Grid, Heading, Flex } from "@chakra-ui/react";
+import { Box, Heading, Flex } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import Modal from "../ui/modal";
 import JobCard from "./job-card";
@@ -24,25 +24,26 @@ const ExclusiveOffers = ({ jobs }: ExclusiveOffersProps) => {
   const showLessJobs = () => setVisibleJobs(6);
 
   return (
-    <Box pt="3rem" pb="8rem">
+    <Box pt="2rem" pb="8rem">
       <Heading
         fontSize={{ base: "1.5rem", md: "2rem" }}
         fontWeight={"semibold"}
         textAlign="center"
         mx="auto"
-        my="2.5rem"
+        mt="2.5rem"
+        mb={{base: '1.6rem', md:'2.5rem'}}
       >
         Exclusive Offers
       </Heading>
 
-      <Grid
-        templateColumns={{
-          base: "1fr",
-          md: "repeat(2, 1fr)",
-          lg: "repeat(3, 1fr)",
-        }}
-        gap={8}
+      <Flex
+        alignItems={"center"}
+        justifyContent={"space-between"}
+        flexWrap={"wrap"}
+        gapY={"2rem"}
+        gapX={'1rem'}
         mb="3rem"
+        w="100%"
       >
         <AnimatePresence>
           {jobs.slice(0, visibleJobs).map((job) => (
@@ -52,6 +53,7 @@ const ExclusiveOffers = ({ jobs }: ExclusiveOffersProps) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
+              className="jobCard"
             >
               <JobCard
                 company_name={job.company_name}
@@ -71,7 +73,7 @@ const ExclusiveOffers = ({ jobs }: ExclusiveOffersProps) => {
             </motion.div>
           ))}
         </AnimatePresence>
-      </Grid>
+      </Flex>
 
       <Flex gap={4} mt="2rem" justifyContent={"center"} alignItems={"center"}>
         {visibleJobs < jobs?.length && (

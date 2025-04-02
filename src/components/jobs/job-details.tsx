@@ -18,14 +18,21 @@ const JobDetails = () => {
 
   return (
     <Box
-      p={6}
+      px={6}
       borderRadius="lg"
       maxW="1000px"
       mx="auto"
       h="85vh"
       overflowY={"auto"}
     >
-      <VStack justify="space-between" align="start">
+      <VStack
+        justify="space-between"
+        align="start"
+        position={"sticky"}
+        top="0"
+        bg="white"
+        mt={2}
+      >
         <HStack justify={"space-between"} w="100%" flexWrap={"wrap"} gap="1rem">
           <Flex alignItems={"center"} gap=".6rem" flexWrap={"wrap"}>
             <Image
@@ -75,7 +82,8 @@ const JobDetails = () => {
             <Box fontSize="16px" color="gray.500">
               <Text>Location: {selectedJob?.candidate_required_location}</Text>
               <Text fontSize={"16px"} truncate color="#333" mt="5px">
-                Salary: {' '} {selectedJob?.salary?.startsWith("competitive")
+                Salary:{" "}
+                {selectedJob?.salary?.startsWith("competitive")
                   ? "competitive salary"
                   : selectedJob?.salary}
               </Text>

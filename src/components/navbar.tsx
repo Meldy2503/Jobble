@@ -19,6 +19,7 @@ import { TbLogin2 } from "react-icons/tb";
 import Logo from "./logo";
 import { BsPersonCircle } from "react-icons/bs";
 import { usePathname } from "next/navigation";
+import { ColorModeButton } from "./ui/color-mode";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -105,6 +106,8 @@ const Navbar = () => {
             >
               Contact Us
             </Link>
+            <ColorModeButton />
+
             <Button
               bg={"transparent"}
               fontSize={"1rem"}

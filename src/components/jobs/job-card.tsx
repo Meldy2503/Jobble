@@ -38,6 +38,7 @@ const JobCard: React.FC<JobCardProps> = ({
       shadow="md"
       bg="#fff"
       _hover={{ bg: "#F8FCFF" }}
+      overflowX={'hidden'}
     >
       <VStack justify="space-between" align="start">
         <HStack justify={"space-between"} w="100%">

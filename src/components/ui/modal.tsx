@@ -48,6 +48,7 @@ const Modal = ({
                   bg="white"
                   onClick={onOpenChange}
                   fontSize={".9rem"}
+                  hover="#f3f4f5"
                 >
                   Cancel
                 </Button>
