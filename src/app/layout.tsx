@@ -1,3 +1,4 @@
+
 import { Provider } from "@/components/ui/provider";
 import "../app/globals.css";
 import { JobProvider } from "@/context/job-context";
@@ -5,6 +6,8 @@ import { JobProvider } from "@/context/job-context";
 // import Head from "next/head";
 
 export default function RootLayout(props: { children: React.ReactNode }) {
+
+
   const { children } = props;
   return (
     <html suppressHydrationWarning>

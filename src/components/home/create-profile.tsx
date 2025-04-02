@@ -5,18 +5,22 @@ import { Box, Heading, Text, Flex } from "@chakra-ui/react";
 import Button from "../button";
 import Wrapper from "../ui/wrapper";
 import pattern from "@/assets/pattern.svg";
+import pattern2 from "@/assets/pattern-2.svg";
+import { useColorModeValue } from "../ui/color-mode";
 
 const CreateProfile = () => {
+    const imageSrc = useColorModeValue(pattern, pattern2);
+  
   return (
-    <Box position={'relative'}>
-      <Box display={{ base: "none", lg: "block" }} >
-      <Image
-        src={pattern}
-        width={250}
-        height={250}
-        alt="lady"
-        style={{ position: "absolute", top: "0", left: "0" }}
-      />
+    <Box position={"relative"}>
+      <Box display={{ base: "none", lg: "block" }}>
+        <Image
+          src={imageSrc}
+          width={250}
+          height={250}
+          alt="lady"
+          style={{ position: "absolute", top: "0", left: "0" }}
+        />
       </Box>
       <Wrapper>
         <Flex

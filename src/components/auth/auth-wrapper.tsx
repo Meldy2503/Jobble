@@ -1,3 +1,5 @@
+"use client";
+
 import workers from "@/assets/auth/workers.webp";
 import Logo from "@/components/logo";
 import {
@@ -10,6 +12,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { useColorModeValue } from "../ui/color-mode";
 
 interface AuthWrapperProps {
   children: React.ReactNode;
@@ -22,12 +25,16 @@ const authTypes = {
 };
 
 function AuthWrapper({ children, authType }: AuthWrapperProps) {
+  const bgColor = useColorModeValue("#f9f9f9", "#171923");
+  const textColor = useColorModeValue("#333", "#dfdede");
   return (
     <Flex
       flexDirection={{ base: "column", md: "row" }}
       alignItems={"center"}
       justifyContent={"center"}
       h={"100vh"}
+      bg={bgColor}
+      color={textColor}
     >
       <Box
         display={{ base: "none", md: "block" }}

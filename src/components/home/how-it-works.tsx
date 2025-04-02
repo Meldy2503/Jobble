@@ -5,13 +5,16 @@ import Button from "../button";
 import man from "@/assets/working-man.webp";
 import Wrapper from "../ui/wrapper";
 import pattern from "@/assets/pattern.svg";
+import pattern2 from "@/assets/pattern-2.svg";
+import { useColorModeValue } from "../ui/color-mode";
 
 const HowItWorks = () => {
+    const imageSrc = useColorModeValue(pattern, pattern2);
   return (
     <Box position={"relative"}>
       <Box display={{ base: "none", lg: "block" }}>
         <Image
-          src={pattern}
+          src={imageSrc}
           width={250}
           height={250}
           alt="lady"

@@ -1,3 +1,6 @@
+'use client'
+
+
 import Footer from "@/components/footer";
 import Categories from "@/components/home/categories";
 import Companies from "@/components/home/companies";
@@ -10,8 +13,9 @@ import Navbar from "@/components/navbar";
 import { Box } from "@chakra-ui/react";
 
 export default function Home() {
+ 
   return (
-    <Box bg={"#f9f9f9"}>
+    <Box>
       <Navbar />
       <Hero />
       <CountStats />

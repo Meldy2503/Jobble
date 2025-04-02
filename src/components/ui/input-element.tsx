@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { AiOutlineFileText, AiOutlinePlus } from "react-icons/ai";
 import { BiPlus } from "react-icons/bi";
+import { useColorModeValue } from "./color-mode";
 
 interface InputElementProps {
   inputStyle?: "floating" | "filled";
@@ -41,6 +42,8 @@ export const InputElement = ({
   rounded,
   ...props
 }: InputElementProps) => {
+  const border = useColorModeValue("#d0d0d0", "rgba(255, 255, 255, 0.1)");
+
   // Track the uploaded filename to switch icons and show the name
   const [selectedFile, setSelectedFile] = useState<string | null>(null);
 
@@ -72,7 +75,7 @@ export const InputElement = ({
         <Box
           as="label"
           border="1px solid"
-          borderColor="gray.200"
+          borderColor={border}
           rounded="md"
           p="2"
           display="flex"
@@ -119,6 +122,8 @@ export const InputElement = ({
             className="peer"
             required
             fontSize={"1rem"}
+            border="1px solid"
+            borderColor={border}
             py="1.5rem"
             px="1rem"
             type={type}
@@ -142,8 +147,10 @@ export const InputElement = ({
           py="1.5rem"
           px="1rem"
           required
+          border="1px solid"
+          borderColor={border}
           fontSize={"1rem"}
-          height={'13rem'}
+          height={"13rem"}
           // autoresize
           size={"xl"}
           placeholder={placeholder || label}
@@ -165,6 +172,8 @@ export const InputElement = ({
       </Flex>
       <Input
         className="peer"
+        border="1px solid"
+        borderColor={border}
         py="1.5rem"
         required
         px="1rem"

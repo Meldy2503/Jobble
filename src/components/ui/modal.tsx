@@ -1,5 +1,8 @@
+'use client'
+
 import { CloseButton, Dialog, Portal } from "@chakra-ui/react";
 import Button from "../button";
+import { useColorModeValue } from "./color-mode";
 
 interface ModalProps {
   open: boolean;
@@ -18,6 +21,8 @@ const Modal = ({
   size,
   cta,
 }: ModalProps) => {
+  const bgColor = useColorModeValue("#f9f9f9", "#1a202c");
+  const textColor = useColorModeValue("#333", "#dfdede");
   return (
     <Dialog.Root
       lazyMount
@@ -34,6 +39,8 @@ const Modal = ({
             py="2rem"
             px={{ base: ".4rem", md: "1rem" }}
             m=".2rem"
+            bg={bgColor}
+            color={textColor}
           >
             <Dialog.Header>
               <Dialog.Title mb="1.5rem">{title}</Dialog.Title>

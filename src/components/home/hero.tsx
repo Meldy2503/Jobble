@@ -1,8 +1,11 @@
 import bgImg from "@/assets/bg-img.jpg";
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import Button from "../button";
+import { useColorModeValue } from "../ui/color-mode";
 
 const Hero = () => {
+  const bgColor = useColorModeValue("#f9f9f9", "#f9f9f9");
+
   return (
     <Flex
       h="87vh"
@@ -26,6 +29,8 @@ const Hero = () => {
           Job Hunting Made Simple
         </Heading>
         <Text
+          w={{ base: "100%", md: "85%", lg: "70%" }}
+          mx="auto"
           my={4}
           fontSize={{ base: "1rem", md: "1.1rem", lg: "1.2rem" }}
           textAlign={"center"}
@@ -33,7 +38,7 @@ const Hero = () => {
           Discover fresh job postings tailored just for you. Browse
           opportunities that match your skills and apply effortlessly.
         </Text>
-        <hr />
+        <Box h=".55px" w="100%" bg={bgColor} />
         <Button
           href={"/jobs"}
           bg="white"

@@ -19,13 +19,19 @@ import { TbLogin2 } from "react-icons/tb";
 import Logo from "./logo";
 import { BsPersonCircle } from "react-icons/bs";
 import { usePathname } from "next/navigation";
-import { ColorModeButton } from "./ui/color-mode";
+import { ColorModeButton, useColorModeValue } from "./ui/color-mode";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [auth, setAuth] = useState(false);
 
   const pathname = usePathname();
+  const bgColor = useColorModeValue("#f9f9f9", "#1a202c");
+  const border = useColorModeValue(
+    "1px solid #E5EAE8",
+    "1px solid rgba(255, 255, 255, 0.1)"
+  );
+  const textColor = useColorModeValue("#333", "#dfdede");
 
   const handleAuth = () => {
     setAuth((prevAuth) => !prevAuth);
@@ -37,9 +43,10 @@ const Navbar = () => {
       py="1rem"
       position={"fixed"}
       top={"0px"}
-      bg={"#f9f9f9"}
+      bg={bgColor}
+      color={textColor}
       zIndex={500}
-      borderBottom={"1px solid #E5EAE8"}
+      borderBottom={border}
     >
       <Flex
         width="90%"
@@ -50,6 +57,7 @@ const Navbar = () => {
         color="brand.200"
       >
         <Logo />
+        <ColorModeButton />
         {auth ? (
           <Box>
             <Menu.Root>
@@ -106,7 +114,6 @@ const Navbar = () => {
             >
               Contact Us
             </Link>
-            <ColorModeButton />
 
             <Button
               bg={"transparent"}
@@ -114,8 +121,8 @@ const Navbar = () => {
               href={"/login"}
               px=".5rem"
               fontWeight={"500"}
-              color="#333"
-              hover="#fff"
+              color={textColor}
+              hover="transparent"
             >
               Login
             </Button>
@@ -141,7 +148,7 @@ const Navbar = () => {
         <Portal>
           <Drawer.Backdrop />
           <Drawer.Positioner>
-            <Drawer.Content>
+            <Drawer.Content bg={bgColor}>
               <Drawer.Body>
                 <Flex
                   direction="column"
@@ -166,6 +173,7 @@ const Navbar = () => {
                     href={"/contact-us"}
                     style={{
                       fontSize: "1rem",
+                      margin: "1rem 0",
                       fontWeight:
                         pathname === "/contact-us" ? "bold" : "normal",
                       borderBottom:
@@ -178,10 +186,11 @@ const Navbar = () => {
                   </Link>
                   <Button
                     bg={"transparent"}
-                    color="#333"
+                    color={textColor}
                     fontSize={"1rem"}
                     href={"/login"}
                     hover="#fff"
+                    mb="1rem"
                   >
                     Login
                   </Button>{" "}

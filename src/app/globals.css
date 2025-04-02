@@ -33,7 +33,8 @@ a {
   position: relative;
   min-width: 250%;
   animation: marquee 25s linear infinite;
-  color: #f3f4f5;
+  color: #7c8186;
+  /* color: #f3f4f5; */
   /* filter: saturate(0); */
 }
 
@@ -86,4 +87,11 @@ a {
   .jobCard {
     width: 100%;
   }
+}
+
+.loading {
+  height: 100vh;
+  display: flex;
+  justify-items: center;
+  align-items: center;
 }

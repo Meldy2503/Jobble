@@ -6,7 +6,7 @@ import Wrapper from "../ui/wrapper";
 
 const Cta = () => {
   return (
-    <Wrapper pt="6rem">
+    <Wrapper pt="6rem" pb='7rem'>
       <Box
         rounded={"60px"}
         zIndex={"1"}
@@ -17,7 +17,6 @@ const Cta = () => {
         backgroundPosition="center"
         textAlign={"center"}
         color={"white"}
-        mb="7rem"
         px={{ base: "1rem", md: "2rem" }}
       >
         <Heading

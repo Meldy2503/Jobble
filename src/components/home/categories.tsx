@@ -1,9 +1,13 @@
+"use client";
+
 import { jobCategories } from "@/lib/data";
 import Image from "next/image";
 import React from "react";
 import { Box, Heading, Grid, Flex, Text } from "@chakra-ui/react";
 import Wrapper from "../ui/wrapper";
 import pattern from "@/assets/pattern.svg";
+import pattern2 from "@/assets/pattern-2.svg";
+import { useColorModeValue } from "../ui/color-mode";
 
 interface CategoriesCardProps {
   title?: string;
@@ -18,6 +22,16 @@ const CategoriesCard = ({
   jobsAvailable,
   w,
 }: CategoriesCardProps) => {
+  const shadow = useColorModeValue(
+    "0px 0px 16px rgb(221, 240, 255)",
+    "0px 0px 16px rgb(1, 25, 43)"
+  );
+
+  const bgColor = useColorModeValue("#fff", "#1a202c");
+  const border = useColorModeValue("#fff", "rgba(255, 255, 255, 0.1)");
+  const color = useColorModeValue("#606261", "#dfdede");
+  const textColor = useColorModeValue("#333", "#dfdede");
+
   return (
     <Box
       display="flex"
@@ -26,8 +40,10 @@ const CategoriesCard = ({
       p={{ base: 4, sm: 7 }}
       maxW="1280px"
       borderRadius="2rem"
-      bg="white"
-      boxShadow="0px 0px 16px rgb(221, 240, 255)"
+      borderWidth="1px"
+      borderColor={border}
+      bg={bgColor}
+      boxShadow={shadow}
       _hover={{
         bg: "#006adc",
         color: "white",
@@ -53,10 +69,10 @@ const CategoriesCard = ({
         />
       </Box>
       <Box>
-        <Heading as="h3" size="xl" fontWeight="bold" color="#333">
+        <Heading as="h3" size="xl" fontWeight="bold" color={textColor}>
           {title}
         </Heading>
-        <Text fontSize="1rem" color="#5d5c5c" mt={2}>
+        <Text fontSize="1rem" color={color} mt={2}>
           {jobsAvailable} jobs available
         </Text>
       </Box>
@@ -65,11 +81,13 @@ const CategoriesCard = ({
 };
 
 const Categories = () => {
+  const imageSrc = useColorModeValue(pattern, pattern2);
+
   return (
-    <Box position={"relative"} zIndex="2">
+    <Box position={"relative"} zIndex="2" bg="#777">
       <Box display={{ base: "none", lg: "block" }}>
         <Image
-          src={pattern}
+          src={imageSrc}
           width={250}
           height={250}
           alt="lady"

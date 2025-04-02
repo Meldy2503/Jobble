@@ -1,18 +1,24 @@
+'use client'
+
 import React from "react";
-import { Box, Heading, Separator, Text, Link, Tabs } from "@chakra-ui/react";
+import { Box, Heading, Text, Link, Tabs } from "@chakra-ui/react";
 import AppliedJobs from "./applied";
 import SavedJobs from "./saved";
+import { useColorModeValue } from "../ui/color-mode";
 
 const MyJob = () => {
+    const border = useColorModeValue("#d0d0d0", "#93989d");
+      const color = useColorModeValue("#606261", "#dfdede");
+    
   return (
     <Box mt="2rem">
       <Heading as="h2" fontWeight={"bold"}>
         My Job
       </Heading>
-      <Text my="0.5rem" color={"#4A4B4A"} fontSize={"14px"}>
+      <Text my="0.5rem" color={color} fontSize={"14px"}>
         See all your job activities
       </Text>
-      <Separator />
+      <Box height=".6px" bg={border} w="full" />
       <Tabs.Root defaultValue="applied" variant={"plain"} mt="2rem">
         <Tabs.List mb="1rem">
           <Tabs.Trigger
@@ -52,7 +58,7 @@ const MyJob = () => {
             </Link>
           </Tabs.Trigger>
         </Tabs.List>
-        <Separator />
+        <Box height=".6px" bg={border} w="full" />
 
         <Tabs.Content value="applied">
           <AppliedJobs />

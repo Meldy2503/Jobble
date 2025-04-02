@@ -13,11 +13,15 @@ import {
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Logo from "./logo";
+import { useColorModeValue } from "./ui/color-mode";
 
 function Footer() {
+  const bgColor = useColorModeValue("#f9f9f9", "#1a202c");
+  const border = useColorModeValue("#d0d0d0", "rgba(255, 255, 255, 0.1)");
+  const textColor = useColorModeValue("#333", "#dfdede");
   return (
-    <Box bg={"#f9f9f9"}>
-      <VStack borderTopWidth="1px" borderColor="gray.200" py={8}>
+    <Box bg={bgColor} color={textColor}>
+      <VStack borderTopWidth=".6px" borderColor={border} py={8}>
         <Box as="footer" maxW="1240px" color="gray.700" mx="auto" w="90%">
           <Flex
             direction={{ base: "column", lg: "row" }}
@@ -34,7 +38,7 @@ function Footer() {
                     variant="ghost"
                     _hover={{ bg: "gray.100" }}
                     border={"1px solid"}
-                    borderColor={"black"}
+                    borderColor={border}
                     rounded={"full"}
                   >
                     <FaFacebookF />
@@ -46,7 +50,7 @@ function Footer() {
                     variant="ghost"
                     _hover={{ bg: "gray.100" }}
                     border={"1px solid"}
-                    borderColor={"black"}
+                    borderColor={border}
                     rounded={"full"}
                   >
                     <FaInstagram />
@@ -58,7 +62,7 @@ function Footer() {
                     variant="ghost"
                     _hover={{ bg: "gray.100" }}
                     border={"1px solid"}
-                    borderColor={"black"}
+                    borderColor={border}
                     rounded={"full"}
                   >
                     <FaXTwitter />
@@ -70,7 +74,7 @@ function Footer() {
                     variant="ghost"
                     _hover={{ bg: "gray.100" }}
                     border={"1px solid"}
-                    borderColor={"black"}
+                    borderColor={border}
                     rounded={"full"}
                   >
                     <FaLinkedinIn />
@@ -86,7 +90,7 @@ function Footer() {
               gap={{ base: 6, md: 10 }}
             >
               {/* Column: Company */}
-              <Stack gap={2} minW="130px">
+              <Stack gap={2} minW="130px" color={textColor}>
                 <Text fontWeight="semibold" fontSize={"1.1rem"}>
                   Company
                 </Text>
@@ -96,7 +100,7 @@ function Footer() {
               </Stack>
 
               {/* Column: Account */}
-              <Stack gap={2} minW="130px">
+              <Stack gap={2} minW="130px" color={textColor}>
                 <Text fontWeight="semibold" fontSize={"1.1rem"}>
                   Account
                 </Text>
@@ -106,7 +110,7 @@ function Footer() {
               </Stack>
 
               {/* Column: Support */}
-              <Stack gap={2} minW="130px">
+              <Stack gap={2} minW="130px" color={textColor}>
                 <Text fontWeight="semibold" fontSize={"1.1rem"}>
                   Support
                 </Text>
@@ -116,7 +120,7 @@ function Footer() {
               </Stack>
 
               {/* Column: About Us */}
-              <Stack gap={2} minW="130px">
+              <Stack gap={2} minW="130px" color={textColor}>
                 <Text fontWeight="semibold" fontSize={"1.1rem"}>
                   About Us
                 </Text>
@@ -130,8 +134,8 @@ function Footer() {
       </VStack>
       <Flex
         textAlign="center"
-        borderTopWidth="1px"
-        borderColor="gray.200"
+        borderTopWidth=".6px"
+        borderColor={border}
         py="2rem"
         alignItems={"center"}
         justifyContent="center"

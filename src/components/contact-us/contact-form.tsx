@@ -14,7 +14,7 @@ const ContactForm = () => {
         direction={{ base: "column", md: "row" }}
         columnGap="3rem"
         rowGap="5rem"
-        mb={{base: '5rem', md: '7rem'}}
+        pb={{base: '5rem', md: '7rem'}}
       >
         <Box w={{ base: "100%", md: "45%" }}>
           <Heading

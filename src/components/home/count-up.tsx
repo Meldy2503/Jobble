@@ -4,6 +4,7 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import CountUp from "react-countup";
 import React from "react";
 import Wrapper from "../ui/wrapper";
+import { useColorModeValue } from "../ui/color-mode";
 
 // Define props for the component
 interface Stat {
@@ -24,13 +25,15 @@ const jobStats = [
 ];
 
 const Counter: React.FC<CountStatsProps> = ({ stats }) => {
+  const textColor = useColorModeValue("#5b5b5b", "#d0d0d0");
+
   return (
     <Flex
       justifyContent={{ base: "center", lg: "space-between" }}
       alignItems="center"
       gap="2rem"
-      color="#5b5b5b"
-      pt="1rem"
+      color={textColor}
+      pt="1.5rem"
       fontFamily={"Chakra Petch"}
       flexWrap={"wrap"}
       mx="auto"

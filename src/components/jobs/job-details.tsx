@@ -5,16 +5,22 @@ import {
   Flex,
   Heading,
   HStack,
-  Separator,
 } from "@chakra-ui/react";
 import Button from "../button";
 import { RxLightningBolt } from "react-icons/rx";
 import parse from "html-react-parser";
 import Image from "next/image";
 import { useJob } from "@/context/job-context";
+import { useColorModeValue } from "../ui/color-mode";
 
 const JobDetails = () => {
   const { selectedJob } = useJob();
+  const bgColor = useColorModeValue("#f9f9f9", "#1a202c");
+  const textColor = useColorModeValue("#333", "#dfdede");
+  const color = useColorModeValue("#606261", "#dfdede");
+  const border = useColorModeValue("#d0d0d0", "rgba(255, 255, 255, 0.1)");
+  
+  
 
   return (
     <Box
@@ -30,7 +36,8 @@ const JobDetails = () => {
         align="start"
         position={"sticky"}
         top="0"
-        bg="white"
+        bg={bgColor}
+        color={textColor}
         mt={2}
       >
         <HStack justify={"space-between"} w="100%" flexWrap={"wrap"} gap="1rem">
@@ -41,7 +48,7 @@ const JobDetails = () => {
               width={30}
               height={30}
             />
-            <Text truncate fontWeight="bold" fontSize="md" color="gray.600">
+            <Text truncate fontWeight="bold" fontSize="md" color={color}>
               {selectedJob?.company_name}
             </Text>
           </Flex>
@@ -79,14 +86,16 @@ const JobDetails = () => {
             flexWrap={"wrap"}
             mt="1rem"
           >
-            <Box fontSize="16px" color="gray.500">
+            <Box fontSize="16px" color={color}>
               <Text>Location: {selectedJob?.candidate_required_location}</Text>
-              <Text fontSize={"16px"} truncate color="#333" mt="5px">
-                Salary:{" "}
-                {selectedJob?.salary?.startsWith("competitive")
-                  ? "competitive salary"
-                  : selectedJob?.salary}
-              </Text>
+              {selectedJob?.salary && (
+                <Text fontSize={"16px"} truncate color={textColor} mt="5px">
+                  Salary:{" "}
+                  {selectedJob?.salary?.startsWith("competitive")
+                    ? "competitive salary"
+                    : selectedJob?.salary}
+                </Text>
+              )}
             </Box>
             <Box>
               <Text mb="5px">{selectedJob?.category}</Text>
@@ -105,7 +114,7 @@ const JobDetails = () => {
             gap="1rem"
           >
             {selectedJob?.tags && (
-              <Flex gap="5px" flexWrap={"wrap"}>
+              <Flex gap="5px" flexWrap={"wrap"} color="#606261">
                 {selectedJob?.tags.map((tag, index) => (
                   <Box
                     bg="red.200"
@@ -126,7 +135,7 @@ const JobDetails = () => {
           </Flex>
         </VStack>
       </VStack>
-      <Separator />
+        <Box height=".6px" bg={border} w="full" />
       <Box width="100%" py={4} mt={3}>
         <Heading color={"#A2A6A4"} mb="10px" fontSize={"18px"}>
           Job Description

@@ -1,18 +1,25 @@
+"use client";
+
 import Navbar from "@/components/navbar";
 import About from "@/components/profile/about";
 import MyJob from "@/components/profile/my-job";
 import Resume from "@/components/profile/resume";
+import { useColorModeValue } from "@/components/ui/color-mode";
 import { Avatar, Box, Grid, Heading, Link, Tabs, Text } from "@chakra-ui/react";
 
 const Profile = () => {
+  const bgColor = useColorModeValue("#f9f9f9", "#171923");
+  const color = useColorModeValue("#606261", "#dfdede");
+  const textColor = useColorModeValue("#333", "#dfdede");
   return (
     <>
       <Navbar />
       <Grid
         placeItems={"center"}
-        bg={"#f9f9f9"}
         pt={{ base: "5rem", md: "7rem" }}
         pb="10rem"
+        bg={bgColor}
+        color={textColor}
       >
         <Box
           mt={10}
@@ -28,10 +35,10 @@ const Profile = () => {
               <Avatar.Image src="https://bit.ly/sage-adebayo" />
             </Avatar.Root>
             <Heading mt="1rem">Philip Maya</Heading>
-            <Text fontSize={"14px"} color={"#606261"} my="3px">
+            <Text fontSize={"14px"} color={color} my="3px">
               UI/UX Designer
             </Text>
-            <Text fontSize={"14px"} mb={"2rem"} color={"#8C8F8E"}>
+            <Text fontSize={"14px"} mb={"2rem"} color={color}>
               Porto, Portugal
             </Text>
             <Tabs.Root defaultValue="about">

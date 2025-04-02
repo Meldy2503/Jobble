@@ -5,7 +5,7 @@ import { Flex, Heading, Text, VStack } from "@chakra-ui/react";
 const ContactHero = () => {
   return (
     <Flex
-      backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.6),rgb(0, 0, 0, 0.7)), url(${
+      backgroundImage={`linear-gradient(rgba(0, 0, 0, 0.5),rgb(0, 0, 0, 0.6)), url(${
         contactImage.src || contactImage
       })`}
       backgroundSize="cover"

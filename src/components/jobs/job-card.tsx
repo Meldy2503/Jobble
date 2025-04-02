@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 import { BsBookmarkDash } from "react-icons/bs";
 import Button from "../button";
+import { useColorModeValue } from "../ui/color-mode";
 
 interface JobCardProps {
   title?: string;
@@ -30,15 +31,21 @@ const JobCard: React.FC<JobCardProps> = ({
   url,
   onClick,
 }) => {
+  const bgColor = useColorModeValue("#fff", "#1a202c");
+  const border = useColorModeValue("#CBCCCB", "rgba(255, 255, 255, 0.1)");
+  const color = useColorModeValue("#606261", "#dfdede");
+  const hover = useColorModeValue("#F8FCFF", "#006adc");
+  const link = useColorModeValue("#006adc", "#F8FCFF");
+
   return (
     <Box
-      borderWidth="1px"
       borderRadius="15px"
       p={4}
-      shadow="md"
-      bg="#fff"
-      _hover={{ bg: "#F8FCFF" }}
-      overflowX={'hidden'}
+      bg={bgColor}
+      _hover={{ bg: hover }}
+      overflowX={"hidden"}
+      borderWidth="1px"
+      borderColor={border}
     >
       <VStack justify="space-between" align="start">
         <HStack justify={"space-between"} w="100%">
@@ -49,7 +56,7 @@ const JobCard: React.FC<JobCardProps> = ({
               width={30}
               height={30}
             />
-            <Text truncate fontWeight="bold" fontSize="md" color="gray.600">
+            <Text truncate fontWeight="bold" fontSize="md" color={color}>
               {company_name}
             </Text>
           </Flex>
@@ -72,11 +79,7 @@ const JobCard: React.FC<JobCardProps> = ({
             w="100%"
             mt="1rem"
           >
-            <Box
-              w={{ base: "100%", sm: "75%" }}
-              fontSize="15px"
-              color="gray.500"
-            >
+            <Box w={{ base: "100%", sm: "75%" }} fontSize="15px" color={color}>
               <Text>Location: {candidate_required_location}</Text>
               <Text mt="3px">{category}</Text>
             </Box>
@@ -86,10 +89,11 @@ const JobCard: React.FC<JobCardProps> = ({
               </Text>
 
               <Flex
-                border="1px solid #006adc"
+                borderWidth=".6px"
+                borderColor={link}
                 px=".1rem"
                 py="0.3rem"
-                color={"#006adc"}
+                color={link}
                 fontSize={"0.8rem"}
                 fontWeight={"semibold"}
                 alignItems={"center"}
@@ -127,7 +131,7 @@ const JobCard: React.FC<JobCardProps> = ({
           View Details
         </Button>
         {publication_date && (
-          <Text fontSize="sm" color="gray.600">
+          <Text fontSize="sm" color={color}>
             {FormatDate(publication_date)}
           </Text>
         )}

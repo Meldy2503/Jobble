@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Flex, Heading, Separator, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import { BiPlus } from "react-icons/bi";
 import Modal from "../ui/modal";
@@ -8,6 +8,7 @@ import SkillsForm from "./skills-form";
 import useToggleModal from "@/hooks/use-toggle-modal";
 import WorkExperienceForm from "./work-experience-form";
 import EducationForm from "./education-form";
+import { useColorModeValue } from "../ui/color-mode";
 
 const About = () => {
   const { open: openSkills, toggleModal: toggleSkills } = useToggleModal();
@@ -15,15 +16,18 @@ const About = () => {
     useToggleModal();
   const { open: openEducation, toggleModal: toggleEducation } =
     useToggleModal();
+      const color = useColorModeValue("#606261", "#dfdede");
+        const border = useColorModeValue("#d0d0d0", "#93989d");
+      
   return (
     <Box mt="2rem">
       <Heading as="h2" fontWeight={"bold"}>
         About
       </Heading>
-      <Text my="0.5rem" color={"#4A4B4A"} fontSize={"14px"}>
+      <Text my="0.5rem" color={color} fontSize={"14px"}>
         Updating your information will offer you the most relevant content
       </Text>
-      <Separator />
+      <Box height=".6px" bg={border} w="full" />
       <Box py="1rem">
         <Flex
           mb="1rem"
@@ -32,12 +36,12 @@ const About = () => {
           onClick={toggleSkills}
           cursor={"pointer"}
         >
-          <Heading color={"#8C8F8E"} fontSize={"1.1rem"}>
+          <Heading color={color} fontSize={"1.1rem"}>
             Skills
           </Heading>
           <BiPlus />
         </Flex>
-        <Separator />
+        <Box height=".6px" bg={border} w="full" />
       </Box>
       <Box py="1rem">
         <Flex
@@ -47,12 +51,12 @@ const About = () => {
           onClick={toggleExperience}
           cursor={"pointer"}
         >
-          <Heading color={"#8C8F8E"} fontSize={"1.1rem"}>
+          <Heading color={color} fontSize={"1.1rem"}>
             Add work experience
           </Heading>
           <BiPlus />
         </Flex>
-        <Separator />
+        <Box height=".6px" bg={border} w="full" />
       </Box>
       <Box py="1rem">
         <Flex
@@ -62,12 +66,12 @@ const About = () => {
           onClick={toggleEducation}
           cursor={"pointer"}
         >
-          <Heading color={"#8C8F8E"} fontSize={"1.1rem"}>
+          <Heading color={color} fontSize={"1.1rem"}>
             Add education
           </Heading>
           <BiPlus />
         </Flex>
-        <Separator />
+        <Box height=".6px" bg={border} w="full" />
       </Box>
       <Modal
         open={openSkills}

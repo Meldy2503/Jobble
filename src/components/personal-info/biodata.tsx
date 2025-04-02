@@ -20,10 +20,13 @@ import useToggleModal from "@/hooks/use-toggle-modal";
 import success from "@/assets/sent.svg";
 import Wrapper from "../ui/wrapper";
 import { useJob } from "@/context/job-context";
+import { useColorModeValue } from "../ui/color-mode";
 
 const Biodata = () => {
   const { open, openModal, toggleModal } = useToggleModal();
   const { selectedJob } = useJob();
+  const color = useColorModeValue("#606261", "#dfdede");
+  const border = useColorModeValue("#d0d0d0", "rgba(255, 255, 255, 0.1)");
 
   return (
     <Wrapper>
@@ -37,11 +40,16 @@ const Biodata = () => {
             alt="comapany logo"
             style={{ width: "1.5rem" }}
           />
-          <Text color={"#595a5a"} fontSize={"1.1rem"}>
+          <Text color={color} fontSize={"1.1rem"}>
             {selectedJob?.company_name}
           </Text>
         </HStack>
-        <Box gap={4} mb={8} borderBottom={"1px solid #E5E5E5"}>
+        <Box
+          gap={4}
+          mb={8}
+          borderBottom={".6px solid"}
+          borderBottomColor={border}
+        >
           <Heading
             as="h1"
             fontSize={{ base: "1.8rem", md: "2rem", lg: "2.5rem" }}
@@ -50,14 +58,17 @@ const Biodata = () => {
           >
             {selectedJob?.title}
           </Heading>
-          <Box fontSize={"1.1rem"} color={"#333"} mt="1rem" mb="2rem">
+
+          <Box fontSize="1.1rem" color={color} mt="1rem" mb="2rem">
             <Text>Location: {selectedJob?.candidate_required_location}</Text>
-            <Text fontSize={"16px"} truncate>
-              Salary:{" "}
-              {selectedJob?.salary?.startsWith("competitive")
-                ? "competitive salary"
-                : selectedJob?.salary}
-            </Text>{" "}
+            {selectedJob?.salary && (
+              <Text fontSize={"16px"} truncate mt="5px">
+                Salary:{" "}
+                {selectedJob?.salary?.startsWith("competitive")
+                  ? "competitive salary"
+                  : selectedJob?.salary}
+              </Text>
+            )}
           </Box>
         </Box>
         <Heading as="h3" size="xl" fontWeight="semibold" mb="2rem">
@@ -97,7 +108,7 @@ const Biodata = () => {
             required
           />
           <Box>
-            <CheckboxGroup color="#606261">
+            <CheckboxGroup color={color}>
               <Checkbox.Root defaultChecked size={"sm"} variant={"outline"}>
                 <Checkbox.HiddenInput />
                 <Checkbox.Control rounded={"4px"} />
