@@ -1,5 +1,7 @@
 import { Provider } from "@/components/ui/provider";
 import "../app/globals.css";
+import { JobProvider } from "@/context/job-context";
+
 // import Head from "next/head";
 
 export default function RootLayout(props: { children: React.ReactNode }) {
@@ -15,7 +17,9 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head> */}
       <body>
-        <Provider>{children}</Provider>
+        <Provider>
+          <JobProvider>{children}</JobProvider>
+        </Provider>
       </body>
     </html>
   );

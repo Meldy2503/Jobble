@@ -40,7 +40,7 @@ function JobSearch() {
           <Field.Root>
             <Input
               border={"none"}
-              placeholder="title"
+              placeholder="Title"
               value={position}
               onChange={(e) => setPosition(e.target.value)}
               outline={"none"}

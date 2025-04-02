@@ -121,6 +121,7 @@ const JobCard: React.FC<JobCardProps> = ({
           fontSize={"0.85rem"}
           fontWeight={"semibold"}
           onClick={onClick}
+          hover="#f3f4f5"
         >
           View Details
         </Button>

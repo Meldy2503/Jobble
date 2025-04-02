@@ -33,6 +33,7 @@ a {
   position: relative;
   min-width: 250%;
   animation: marquee 25s linear infinite;
+  color: #f3f4f5;
   /* filter: saturate(0); */
 }
 

@@ -14,15 +14,16 @@ import {
 } from "@chakra-ui/react";
 import GoBack from "../ui/go-back";
 import Image from "next/image";
-import amazon from "@/assets/amazon.svg";
 import Modal from "../ui/modal";
 import Button from "../button";
 import useToggleModal from "@/hooks/use-toggle-modal";
 import success from "@/assets/sent.svg";
 import Wrapper from "../ui/wrapper";
+import { useJob } from "@/context/job-context";
 
 const Biodata = () => {
   const { open, openModal, toggleModal } = useToggleModal();
+  const { selectedJob } = useJob();
 
   return (
     <Wrapper>
@@ -30,26 +31,34 @@ const Biodata = () => {
         <GoBack />
         <HStack my="1.5rem">
           <Image
-            src={amazon}
-            width={40}
-            height={40}
-            alt="google"
+            src={selectedJob?.company_logo || ""}
+            width={50}
+            height={50}
+            alt="comapany logo"
             style={{ width: "1.5rem" }}
           />
-          <Text color={"#8C8F8E"}>Amazon Company</Text>
+          <Text color={"#595a5a"} fontSize={"1.1rem"}>
+            {selectedJob?.company_name}
+          </Text>
         </HStack>
         <Box gap={4} mb={8} borderBottom={"1px solid #E5E5E5"}>
           <Heading
             as="h1"
-            fontSize={{ base: "2rem", md: "2.5rem", lg: "3rem" }}
+            fontSize={{ base: "1.8rem", md: "2rem", lg: "2.5rem" }}
             lineHeight={1.3}
             fontWeight="bold"
           >
-            Product designer
+            {selectedJob?.title}
           </Heading>
-          <Text color={"#8C8F8E"} mt="1rem" mb="2rem">
-            Porto, Portugal
-          </Text>
+          <Box fontSize={"1.1rem"} color={"#333"} mt="1rem" mb="2rem">
+            <Text>Location: {selectedJob?.candidate_required_location}</Text>
+            <Text fontSize={"16px"} truncate>
+              Salary:{" "}
+              {selectedJob?.salary?.startsWith("competitive")
+                ? "competitive salary"
+                : selectedJob?.salary}
+            </Text>{" "}
+          </Box>
         </Box>
         <Heading as="h3" size="xl" fontWeight="semibold" mb="2rem">
           Personal Information
@@ -102,7 +111,7 @@ const Biodata = () => {
                 <Checkbox.HiddenInput />
                 <Checkbox.Control rounded={"4px"} />
                 <Checkbox.Label fontSize={"0.9rem"}>
-                  Yes, GoHire can contact me directly about specific future job
+                  Yes, Jobble can contact me directly about specific future job
                   opportunities.
                 </Checkbox.Label>
               </Checkbox.Root>
@@ -125,17 +134,24 @@ const Biodata = () => {
               alt="success"
               style={{ width: "20rem" }}
             />
-            <Heading as={"h3"} mt={"1rem"} fontWeight={"bold"}>
-              Your application has been submited
-            </Heading>
             <Heading
-              as={"h3"}
-              mt={"-0.2rem"}
-              mb="1.5rem"
-              color="#006adc"
-              fontWeight={"bold"}
+              as="h3"
+              my="1.5rem"
+              fontWeight="bold"
+              textAlign={"center"}
+              lineHeight={1.8}
             >
-              Successfully!
+              Your application to{" "}
+              <Text
+                as="span"
+                mt="-0.2rem"
+                mb="1.5rem"
+                color="#006adc"
+                fontWeight="bold"
+              >
+                {selectedJob?.company_name} Company
+              </Text>{" "}
+              has been <br /> Submitted Successfully.
             </Heading>
 
             <Button href={"/"} px="3rem">

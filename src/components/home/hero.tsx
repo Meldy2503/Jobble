@@ -39,6 +39,7 @@ const Hero = () => {
           bg="white"
           mt="3rem"
           color={"#006adc"}
+          hover="#f5fafa"
           px="2.5rem"
           py="1.4rem"
         >

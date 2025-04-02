@@ -45,6 +45,7 @@ const Cta = () => {
           color={"#006adc"}
           mt={"1rem"}
           px="3rem"
+          hover="#f5fafa"
         >
           Apply Now
         </Button>

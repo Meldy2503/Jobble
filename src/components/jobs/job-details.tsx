@@ -10,15 +10,12 @@ import {
 import Button from "../button";
 import { RxLightningBolt } from "react-icons/rx";
 import parse from "html-react-parser";
-import { Job } from "@/app/jobs/page";
 import Image from "next/image";
+import { useJob } from "@/context/job-context";
 
-interface JobDetailsProps {
-  selectedJob: Job | null;
-}
+const JobDetails = () => {
+  const { selectedJob } = useJob();
 
-const JobDetails = ({ selectedJob }: JobDetailsProps) => {
-  console.log(selectedJob, "selectedJob");
   return (
     <Box
       p={6}
@@ -78,7 +75,7 @@ const JobDetails = ({ selectedJob }: JobDetailsProps) => {
             <Box fontSize="16px" color="gray.500">
               <Text>Location: {selectedJob?.candidate_required_location}</Text>
               <Text fontSize={"16px"} truncate color="#333" mt="5px">
-                {selectedJob?.salary?.startsWith("competitive")
+                Salary: {' '} {selectedJob?.salary?.startsWith("competitive")
                   ? "competitive salary"
                   : selectedJob?.salary}
               </Text>
@@ -99,19 +96,21 @@ const JobDetails = ({ selectedJob }: JobDetailsProps) => {
             flexWrap={"wrap"}
             gap="1rem"
           >
-            <Flex gap="5px" flexWrap={"wrap"}>
-              {selectedJob?.tags.map((tag, index) => (
-                <Box
-                  bg="red.200"
-                  key={index}
-                  px="8px"
-                  rounded="3rem"
-                  fontSize={"12px"}
-                >
-                  {tag}
-                </Box>
-              ))}
-            </Flex>
+            {selectedJob?.tags && (
+              <Flex gap="5px" flexWrap={"wrap"}>
+                {selectedJob?.tags.map((tag, index) => (
+                  <Box
+                    bg="red.200"
+                    key={index}
+                    px="8px"
+                    rounded="3rem"
+                    fontSize={"12px"}
+                  >
+                    {tag}
+                  </Box>
+                ))}
+              </Flex>
+            )}
             <Button href={"/application-form"} px="1.5rem">
               <RxLightningBolt />
               <Text>Apply</Text>

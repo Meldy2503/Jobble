@@ -9,6 +9,7 @@ import JobCard from "./job-card";
 import JobDetails from "./job-details";
 import Button from "../button";
 import { Job } from "@/app/jobs/page";
+import { useJob } from "@/context/job-context";
 
 export interface ExclusiveOffersProps {
   jobs: Job[];
@@ -17,15 +18,15 @@ export interface ExclusiveOffersProps {
 const ExclusiveOffers = ({ jobs }: ExclusiveOffersProps) => {
   const { open, toggleModal } = useToggleModal();
   const [visibleJobs, setVisibleJobs] = useState(6);
-  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
 
+  const { setSelectedJob } = useJob();
   const loadMoreJobs = () => setVisibleJobs((prev) => prev + 6);
   const showLessJobs = () => setVisibleJobs(6);
 
   return (
     <Box pt="3rem" pb="8rem">
       <Heading
-        fontSize={{ base: "1.5rem", md: "2rem"}}
+        fontSize={{ base: "1.5rem", md: "2rem" }}
         fontWeight={"semibold"}
         textAlign="center"
         mx="auto"
@@ -99,7 +100,7 @@ const ExclusiveOffers = ({ jobs }: ExclusiveOffersProps) => {
       </Flex>
 
       <Modal size="xl" open={open} onOpenChange={toggleModal}>
-        <JobDetails selectedJob={selectedJob} />
+        <JobDetails />
       </Modal>
     </Box>
   );

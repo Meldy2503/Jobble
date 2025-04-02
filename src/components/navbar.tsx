@@ -18,10 +18,13 @@ import Button from "./button";
 import { TbLogin2 } from "react-icons/tb";
 import Logo from "./logo";
 import { BsPersonCircle } from "react-icons/bs";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [auth, setAuth] = useState(false);
+
+  const pathname = usePathname();
 
   const handleAuth = () => {
     setAuth((prevAuth) => !prevAuth);
@@ -78,21 +81,38 @@ const Navbar = () => {
           <Flex
             display={{ base: "none", lg: "flex" }}
             align={"center"}
-            gap="1rem"
+            gap="2rem"
           >
-            <Link href={"/jobs"} style={{ fontSize: "1rem" }}>
+            <Link
+              href={"/jobs"}
+              style={{
+                fontSize: "1rem",
+                fontWeight: pathname === "/jobs" ? "bold" : "normal",
+                borderBottom:
+                  pathname === "/jobs" ? "2px solid #006adc" : "none",
+              }}
+            >
               Jobs
             </Link>
-            <Link href={"/contact-us"} style={{ fontSize: "1rem" }}>
+            <Link
+              href={"/contact-us"}
+              style={{
+                fontSize: "1rem",
+                fontWeight: pathname === "/contact-us" ? "bold" : "normal",
+                borderBottom:
+                  pathname === "/contact-us" ? "2px solid #006adc" : "none",
+              }}
+            >
               Contact Us
             </Link>
             <Button
               bg={"transparent"}
-              color="#333"
               fontSize={"1rem"}
               href={"/login"}
               px=".5rem"
               fontWeight={"500"}
+              color="#333"
+              hover="#fff"
             >
               Login
             </Button>
@@ -129,13 +149,27 @@ const Navbar = () => {
                   <Logo />
                   <Link
                     href={"/jobs"}
-                    style={{ fontSize: "1rem", marginTop: "2rem" }}
+                    style={{
+                      fontSize: "1rem",
+                      fontWeight: pathname === "/jobs" ? "bold" : "normal",
+                      borderBottom:
+                        pathname === "/jobs" ? "2px solid #006adc" : "none",
+                      marginTop: "2rem",
+                    }}
                   >
                     Jobs
                   </Link>
                   <Link
                     href={"/contact-us"}
-                    style={{ fontSize: "1rem" }}
+                    style={{
+                      fontSize: "1rem",
+                      fontWeight:
+                        pathname === "/contact-us" ? "bold" : "normal",
+                      borderBottom:
+                        pathname === "/contact-us"
+                          ? "2px solid #006adc"
+                          : "none",
+                    }}
                   >
                     Contact Us
                   </Link>
@@ -144,6 +178,7 @@ const Navbar = () => {
                     color="#333"
                     fontSize={"1rem"}
                     href={"/login"}
+                    hover="#fff"
                   >
                     Login
                   </Button>{" "}

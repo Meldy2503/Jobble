@@ -12,17 +12,17 @@ import { Flex, Spinner, Text } from "@chakra-ui/react";
 
 // Define Job interface
 export interface Job {
-  id: number;
-  title: string;
-  company_name: string;
-  company_logo: string;
-  category: string;
-  tags: string[];
-  salary: string;
-  candidate_required_location: string;
-  job_type: string;
-  publication_date: string;
-  url: string;
+  id?: number;
+  title?: string;
+  company_name?: string;
+  company_logo?: string;
+  category?: string;
+  tags?: string[];
+  salary?: string;
+  candidate_required_location?: string;
+  job_type?: string;
+  publication_date?: string;
+  url?: string;
   description?: string;
 }
 
